@@ -36,13 +36,13 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired
+  value: PropTypes.any.isRequired,
 };
 
 const AntTabs = withStyles({
   indicator: {
-    backgroundColor: "#1890ff"
-  }
+    backgroundColor: "#1890ff",
+  },
 })(Tabs);
 
 const AntTab = withStyles((theme) => ({
@@ -62,24 +62,24 @@ const AntTab = withStyles((theme) => ({
       "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(",")
+      '"Segoe UI Symbol"',
+    ].join(","),
   },
 }))((props) => <Tab disableRipple {...props} />);
 
 function openTabs(index) {
   return {
     id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   padding: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
   },
   file: {
     textTransform: "none",
@@ -97,25 +97,25 @@ const useStyles = makeStyles((theme) => ({
       "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
-    ].join(",")
+      '"Segoe UI Symbol"',
+    ].join(","),
   },
   drawer: {
-    width: 250
+    width: 250,
   },
   indicator: {
-    backgroundColor: "#1890ff"
+    backgroundColor: "#1890ff",
   },
   demo1: {
-    backgroundColor: theme.palette.background.paper
-  }
+    backgroundColor: theme.palette.background.paper,
+  },
 }));
 
 export default function CustomizedTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [state, setState] = React.useState({
-    file: false
+    file: false,
   });
 
   const handleChange = (event, newValue) => {
