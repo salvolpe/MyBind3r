@@ -1,0 +1,454 @@
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a:hover {
+  background-color: #e9e9e9;
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: #f8f8f8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.space-evenly {
+  display: flex;
+  justify-content: space-between;
+}
+
+/************
+ Top of the Page
+ ************/
+
+.top-bar {
+  height: 96px;
+  width: 1440px;
+  padding-bottom: 20px;
+}
+div.header {
+  position: absolute;
+  width: 1440px;
+  height: 46px;
+  left: 0px;
+  top: 0px;
+}
+.menu {
+  position: absolute;
+  width: 373.17px;
+  height: 24px;
+  left: 13px;
+  top: 15px;
+
+  font-size: 20px;
+  line-height: 28px;
+}
+.title {
+  justify-content: center;
+  margin: 0px auto;
+  position: absolute;
+  width: 270px;
+  height: 28px;
+  left: 585px;
+  top: 15px;
+
+  text-align: center;
+  line-height: 28px;
+  font-size: 24px;
+  line-height: 28px;
+}
+.users {
+  position: absolute;
+  width: 93px;
+  height: 26.01px;
+  left: 1326px;
+  top: 13px;
+}
+.collaborators {
+  display: flex;
+  width: 50.58px;
+  height: 26.01px;
+}
+.user,
+.user button {
+  border: 0px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.homeOptions {
+  position: absolute;
+  width: 1440px;
+  height: 50px;
+  left: 0px;
+  top: 46px;
+  border: 1px solid #e9e9e9;
+  border-right: 0px;
+
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.divider-box {
+  width: 10px;
+  height: 36.01px;
+  display: flex;
+  align-items: center;
+}
+.vertical-divider {
+  width: 1px;
+  height: 36.01px;
+  margin: 0px auto;
+  background-color: #afafaf;
+}
+
+/************
+ Bottom of the Page
+ ************/
+
+.lower-screen {
+  position: absolute;
+  width: 1440px;
+  height: 926px;
+  left: 0px;
+  top: 98px;
+  background-color: #f8f8f8;
+}
+.binder-left {
+  position: absolute;
+  width: 653px;
+  height: 845.4px;
+  left: 67px;
+  top: 116px;
+
+  background: white;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.binder-right {
+  position: absolute;
+  width: 653px;
+  height: 845.4px;
+  left: 720px;
+  top: 116px;
+
+  background: white;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.screenshot-box {
+  position: absolute;
+  width: 307px;
+  height: 89px;
+  left: 787px;
+  top: 195px;
+
+  border: 2px solid #04c100;
+  box-sizing: border-box;
+}
+.video-note {
+  position: absolute;
+  width: 275px;
+  height: 38px;
+  left: 788px;
+  top: 149px;
+
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #04c100;
+}
+.sound-note {
+  position: absolute;
+  width: 225px;
+  height: 38px;
+  left: 787px;
+  top: 341px;
+
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #885fff;
+}
+
+.binder-ring-group {
+  position: absolute;
+  width: 48px;
+  height: 691px;
+  left: 696px;
+  top: 198px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  flex-direction: column;
+}
+.binder-ring {
+  font-size: 48px;
+  line-height: 55px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #bababa;
+}
+
+.bookmark-text {
+  width: 68px;
+  height: 30px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+
+  transform: rotate(-90deg);
+}
+.bookmark1 {
+  position: absolute;
+  width: 30px;
+  height: 68px;
+  left: 37px;
+  top: 116px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #81ff6c;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.bookmark2 {
+  position: absolute;
+  width: 30px;
+  height: 68px;
+  left: 37px;
+  top: 181.33px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ff0000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.bookmark3 {
+  position: absolute;
+  width: 30px;
+  height: 68px;
+  left: 37px;
+  top: 246.67px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #db00ff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.add-bookmark {
+  position: absolute;
+  width: 30px;
+  height: 68px;
+  left: 37px;
+  top: 312px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #cdcdcd;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.add-bookmark button {
+  width: 30px;
+  height: 68px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+.add-bookmark button:hover {
+  background-color: #e0e0e0;
+}
+
+.started-text {
+  position: absolute;
+  width: 170px;
+  height: 32px;
+  left: 416px;
+  top: 134px;
+
+  font-size: 16px;
+  line-height: 19px;
+}
+.video-highlight {
+  position: absolute;
+  width: 209px;
+  height: 15px;
+  left: 143px;
+  top: 245px;
+
+  background: rgba(4, 193, 0, 0.25);
+}
+.note-to-self {
+  position: absolute;
+  width: 192px;
+  height: 45px;
+  left: 386px;
+  top: 455px;
+
+  font-size: 16px;
+  line-height: 19px;
+}
+.note-to-self-highlight {
+  position: absolute;
+  width: 224px;
+  height: 15px;
+  left: 143px;
+  top: 474px;
+
+  background: linear-gradient(
+      0deg,
+      rgba(250, 255, 0, 0.25),
+      rgba(250, 255, 0, 0.25)
+    ),
+    rgba(250, 255, 0, 0.25);
+}
+.sound-highlight {
+  position: absolute;
+  width: 178px;
+  height: 15px;
+  left: 143px;
+  top: 364px;
+
+  background: rgba(136, 95, 255, 0.25);
+}
+
+#bottom-bar {
+  position: absolute;
+  width: 1306px;
+  height: 55px;
+  left: 67px;
+  top: 969px;
+}
+
+#bottom-bar button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#bottom-bar button:hover {
+  background-color: #e9e9e9;
+}
+
+/************
+ Home Ribbon Buttons
+ ************/
+
+.caret-down {
+  font-size: 12px;
+}
+
+.font-name-box {
+  width: 122px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+
+  padding: 8px 8px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+.font-size-box {
+  width: 43px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+
+  padding: 4px 4px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+}
+.font-color-box,
+.font-color-box button {
+  width: 45px;
+  height: 40px;
+  padding-bottom: 3px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.font-color-box button:hover {
+  background-color: #f8f8f8;
+}
+.font-letter {
+  font-size: 22px;
+}
+.font-color-underline {
+  width: 22px;
+  height: 5.33px;
+  background-color: black;
+}
+.tags-box,
+.tags-box button {
+  width: 100px;
+  height: 40px;
+  padding-bottom: 3px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.tags-box button:hover {
+  background-color: #f8f8f8;
+}
+.tags-box span {
+  font-size: 14px;
+}
+.highlighter-box,
+.highlighter-box button {
+  width: 120px;
+  height: 40px;
+  padding-bottom: 3px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.highlighter-box button:hover {
+  background-color: #f8f8f8;
+}
+.highlighter-box span {
+  font-size: 14px;
+  text-align: left;
+}
