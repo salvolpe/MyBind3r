@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import Header from "./header";
 import Menu from "./menu";
 import "./App.css";

@@ -5,6 +5,6 @@ import App from "./App";
 import Header from "./header";
 import Menu from "./menu";
 
-ReactDOM.render(<App />, document.querySelector("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // ReactDOM.render(<Menu/>, document.querySelector('#menu'));
