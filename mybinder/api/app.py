@@ -13,9 +13,12 @@ from .models import User
 with app.app_context():
     db.create_all()
 
+from .binder import binder
+app.register_blueprint(binder)
+
 from .auth import auth
 app.register_blueprint(auth)
 
 @app.route('/import', methods=['GET'])
-def importFile():
+def import_file():
     return jsonify({'test': 'file'}), 201

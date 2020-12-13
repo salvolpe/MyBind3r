@@ -1,6 +1,6 @@
 import functools
 from flask import (
-    Blueprint, g, request, session
+    Blueprint, request, session
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from .app import db
@@ -29,7 +29,7 @@ def login():
         else:
             return error, 400
 
-@auth.route('/register', methods=['GET', 'POST'])
+@auth.route('/register', methods=['POST'])
 def register():
     if request.method == 'POST':
         username = request.get_json()['username']
