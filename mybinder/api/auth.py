@@ -8,7 +8,7 @@ from .models import User
 
 auth = Blueprint('auth', __name__, url_prefix='/auth')
 
-@auth.route('/login', methods=['POST'])
+@auth.route('/_login', methods=['POST'])
 def login():
     if request.method == 'POST':
         username = request.get_json()['username']
@@ -29,7 +29,7 @@ def login():
         else:
             return error, 400
 
-@auth.route('/register', methods=['POST'])
+@auth.route('/_register', methods=['POST'])
 def register():
     if request.method == 'POST':
         username = request.get_json()['username']
