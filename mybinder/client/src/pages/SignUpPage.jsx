@@ -40,17 +40,19 @@ const SignUpPage = () => {
           variant="outlined"
           onClick={async () => {
             const user = { username, password };
-            const response = await fetch("/_register", {
+            const response = await fetch("/auth/register", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: user,
+              body: JSON.stringify(user),
             });
 
             if (response.ok) {
-              console.log(username + "signed up!");
+              console.log(username + " signed up!");
             }
+
+            history.push("/");
           }}
         >
           Register

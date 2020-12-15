@@ -38,17 +38,18 @@ const LoginPage = () => {
           variant="outlined"
           onClick={async () => {
             const user = { username, password };
-            const response = await fetch("/_login", {
+            const response = await fetch("/auth/login", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: user,
+              body: JSON.stringify(user),
             });
 
             if (response.ok) {
-              console.log(username + "logged in!");
+              console.log(username + " logged in!");
             }
+            history.push("/");
           }}
         >
           Log In
