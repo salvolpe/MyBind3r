@@ -22,12 +22,14 @@ const LoginPage = () => {
       <Grid container direction="column">
         <form noValidate>
           <TextField
+            required
             id="username"
             label="Username"
             variant="outlined"
             onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
+            required
             id="password"
             label="Password"
             variant="outlined"

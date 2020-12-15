@@ -21,19 +21,37 @@ const SignUpPage = () => {
       <Typography>Hi! I'm the sign-up page!</Typography>
       <Grid container direction="column">
         <form noValidate>
-          <TextField id="first_name" label="First Name" variant="outlined" />
-          <TextField id="last_name" label="Last Name" variant="outlined" />
           <TextField
+            required
+            id="first_name"
+            label="First Name"
+            variant="outlined"
+          />
+          <TextField
+            required
+            id="last_name"
+            label="Last Name"
+            variant="outlined"
+          />
+          <TextField
+            required
             id="username"
             label="Username"
             variant="outlined"
             onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
+            required
             id="password"
             label="Password"
             variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <TextField
+            required
+            id="repeat-password"
+            label="Re-enter password"
+            variant="outlined"
           />
         </form>
         <Button
