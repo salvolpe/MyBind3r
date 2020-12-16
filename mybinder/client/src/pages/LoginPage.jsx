@@ -71,7 +71,7 @@ const LoginPage = () => {
             });
 
             if (response.ok) {
-              console.log(username + " logged in!");
+              console.log(response);
               setAlert("Successful login!");
               setSeverity("success");
               setOpen(true);

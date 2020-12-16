@@ -89,13 +89,13 @@ const SignUpPage = () => {
             });
 
             if (response.ok) {
-              console.log(username + " logged in!");
+              console.log(response);
               setAlert("Successful login!");
               setSeverity("success");
               setOpen(true);
               setTimeout(() => history.push("/"), 3000);
             } else {
-              console.log(response.bodyUsed);
+              console.log(response);
               setAlert(response.statusText);
               setSeverity("error");
               setOpen(true);
