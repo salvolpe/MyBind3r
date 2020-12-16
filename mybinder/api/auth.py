@@ -1,6 +1,6 @@
 import functools
 from flask import (
-    Blueprint, request, session
+    Blueprint, request, session, jsonify
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from .app import db
@@ -25,9 +25,9 @@ def login():
         if error is None:
             session.clear()
             session['username'] = username
-            return "User {} successfully logged in.".format(username)
+            return jsonify({"message": "User {} successfully logged in.".format(username)})
         else:
-            return error, 400
+            return jsonify({"error": error}), 400
 
 @auth.route('/register', methods=['POST'])
 def register():
@@ -47,6 +47,6 @@ def register():
             new_user = User(username=username, password=generate_password_hash(password))
             db.session.add(new_user)
             db.session.commit()
-            return "User {} successfully registered.".format(username), 200
+            return jsonify({"message": "User {} successfully registered.".format(username)}), 200
         else:
-            return error, 400
+            return jsonify({"error": error}), 400
