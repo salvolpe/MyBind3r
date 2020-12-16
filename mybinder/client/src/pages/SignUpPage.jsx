@@ -1,12 +1,33 @@
 import React, { useState } from "react";
-import { Button, Grid, TextField, Typography } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 import { useHistory } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const SignUpPage = () => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = useState(false);
+  const [alert, setAlert] = useState("");
+  const [severity, setSeverity] = useState("success");
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -35,6 +56,7 @@ const SignUpPage = () => {
           />
           <TextField
             required
+            type="username"
             id="username"
             label="Username"
             variant="outlined"
@@ -67,14 +89,26 @@ const SignUpPage = () => {
             });
 
             if (response.ok) {
-              console.log(username + " signed up!");
+              console.log(username + " logged in!");
+              setAlert("Successful login!");
+              setSeverity("success");
+              setOpen(true);
+              setTimeout(() => history.push("/"), 3000);
+            } else {
+              console.log(response.bodyUsed);
+              setAlert(response.statusText);
+              setSeverity("error");
+              setOpen(true);
             }
-
-            history.push("/");
           }}
         >
           Register
         </Button>
+        <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity={severity}>
+            {alert}
+          </Alert>
+        </Snackbar>
       </Grid>
     </div>
   );
