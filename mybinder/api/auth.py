@@ -25,7 +25,7 @@ def login():
         if error is None:
             session.clear()
             session['username'] = username
-            return jsonify({"message": "User {} successfully logged in.".format(username)})
+            return jsonify({"message": "User {} successfully logged in.".format(username)}), 200
         else:
             return jsonify({"error": error}), 400
 

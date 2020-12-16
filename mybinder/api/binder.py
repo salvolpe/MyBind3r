@@ -38,7 +38,7 @@ def myfile(name):
             )
             db.session.add(new_file)
             db.session.commit()
-            return jsonify({"error": "File {} successfully created.".format(name)}), 200
+            return jsonify({"message": "File {} successfully created.".format(name)}), 200
         print(myfile)
         error = "File {} will be overwritten.".format(name)
         return jsonify({"error": error}), 400
@@ -156,6 +156,6 @@ def tag(filename, link1, link2, tagtype):
                 Tag.tagtype==tagtype
             ).delete()
             db.session.commit()
-            return jsonify({"Tag between {} and {} successfully deleted.".format(link1, link2)}), 200
+            return jsonify({"message": "Tag between {} and {} successfully deleted.".format(link1, link2)}), 200
         error = "Tag between {} and {} cannot be deleted as it does not exist.".format(link1, link2)
         return jsonify({"error": error}), 400
