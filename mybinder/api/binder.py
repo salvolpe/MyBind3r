@@ -44,7 +44,10 @@ def myfile(name):
         return jsonify({"error": error}), 400
     elif request.method == 'DELETE':
         if myfile:
-            File.query.filter(File.email==session['email'], File.filename==name).delete()
+            deleted_file = File.query.filter(File.email==session['email'], File.filename==name).first()
+            db.session.delete(deleted_file)
+            Object.query.filter(Object.email==session['email'], Object.filename==name).delete()
+            Tag.query.filter(Tag.email==session['email'], Tag.filename==name).delete() 
             db.session.commit()
             return jsonify({"message": "File {} successfully deleted.".format(name)}), 200
         error = "File {} cannot be deleted as it does not exist.".format(name)
@@ -93,11 +96,13 @@ def myobject(filename, page, name):
         return jsonify({"error": error}), 400
     elif request.method == 'DELETE':
         if myobject:
-            Object.query.filter(
+            deleted_obj = Object.query.filter(
                 Object.email==session['email'],
                 Object.filename==filename,
                 Object.objectlink==name
-            ).delete()
+            ).first()
+            db.session.delete(deleted_obj)
+            Tag.query.filter(Tag.email==session['email'], filename==filename, Tag.objectlink==name).delete()
             db.session.commit()
             return jsonify({"message": "Object {} successfully deleted.".format(name)}), 200
         error = "Object {} cannot be deleted as it does not exist.".format(name)

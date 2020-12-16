@@ -12,11 +12,18 @@ class Tag(db.Model):
     filename: str
     tagtype: str
 
-    objectlink = db.Column(db.String, db.ForeignKey('object.objectlink', ondelete='CASCADE'), primary_key=True)
+    objectlink = db.Column(db.String, primary_key=True)
     object2link = db.Column(db.String, primary_key=True)
-    email = db.Column(db.String(50), db.ForeignKey('user.email', ondelete='CASCADE'), primary_key=True)
-    filename = db.Column(db.String, db.ForeignKey('file.filename', ondelete='CASCADE'), primary_key=True)
+    email = db.Column(db.String(50), primary_key=True)
+    filename = db.Column(db.String, primary_key=True)
     tagtype = db.Column(db.String, primary_key=True)
+    __table_args__ = (
+        db.ForeignKeyConstraint(
+            ['filename', 'email', 'objectlink'],
+            ['object.filename', 'object.email', 'object.objectlink'],
+            onupdate="CASCADE", ondelete="CASCADE",
+        ),
+    )
 
 @dataclass
 class Object(db.Model):
@@ -32,12 +39,13 @@ class Object(db.Model):
     filename = db.Column(db.String, primary_key=True)
     email = db.Column(db.String(50), primary_key=True)
     page = db.Column(db.Integer)
-    tags = db.relationship('Tag', backref='Object', passive_deletes=True)
+    tags = db.relationship('Tag', backref="Object", passive_deletes=True, cascade='all, delete, delete-orphan')
 
     __table_args__ = (
         db.ForeignKeyConstraint(
             ['filename', 'email'],
             ['file.filename', 'file.email'],
+            onupdate="CASCADE", ondelete="CASCADE"
         ),
     )
 
@@ -49,9 +57,18 @@ class File(db.Model):
     filename: str
     objects: Object
 
-    email = db.Column(db.String(50), db.ForeignKey('user.email', ondelete='CASCADE'), primary_key=True)
+    email = db.Column(db.String(50), primary_key=True)
     filename = db.Column(db.String, primary_key=True)
-    objects = db.relationship('Object', backref='File', passive_deletes=True)
+    objects = db.relationship('Object', backref="File", passive_deletes=True, cascade='all, delete, delete-orphan')
+
+    __table_args__ = (
+        db.ForeignKeyConstraint(
+            ['email'],
+            ['user.email'],
+            onupdate="CASCADE", ondelete="CASCADE",
+            
+        ),
+    )
 
 @dataclass
 class User(db.Model):
@@ -63,4 +80,4 @@ class User(db.Model):
 
     email = db.Column(db.String(50), primary_key=True)
     password = db.Column(db.String)
-    files = db.relationship('File', passive_deletes=True)
+    files = db.relationship('File', backref="Object", passive_deletes=True, cascade='all, delete, delete-orphan')

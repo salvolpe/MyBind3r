@@ -11,6 +11,7 @@ db.init_app(app)
 
 from .models import User
 with app.app_context():
+    db.session.execute("PRAGMA foreign_keys = ON")
     db.create_all()
 
 from .binder import binder
