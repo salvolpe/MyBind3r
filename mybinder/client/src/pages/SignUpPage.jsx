@@ -16,7 +16,7 @@ function Alert(props) {
 
 const SignUpPage = () => {
   const history = useHistory();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
   const [alert, setAlert] = useState("");
@@ -56,11 +56,11 @@ const SignUpPage = () => {
           />
           <TextField
             required
-            type="username"
-            id="username"
-            label="Username"
+            type="email"
+            id="email"
+            label="Email"
             variant="outlined"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <TextField
             required
@@ -79,7 +79,7 @@ const SignUpPage = () => {
         <Button
           variant="outlined"
           onClick={async () => {
-            const user = { username, password };
+            const user = { email, password };
             const response = await fetch("/auth/register", {
               method: "POST",
               headers: {
@@ -93,7 +93,7 @@ const SignUpPage = () => {
               setAlert("Successful login!");
               setSeverity("success");
               setOpen(true);
-              setTimeout(() => history.push("/"), 3000);
+              setTimeout(() => history.push("/directory"), 3000);
             } else {
               console.log(response);
               setAlert(response.statusText);
@@ -104,7 +104,7 @@ const SignUpPage = () => {
         >
           Register
         </Button>
-        <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
           <Alert onClose={handleClose} severity={severity}>
             {alert}
           </Alert>
