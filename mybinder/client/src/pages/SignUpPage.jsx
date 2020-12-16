@@ -86,20 +86,22 @@ const SignUpPage = () => {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(user),
-            });
-
-            if (response.ok) {
-              console.log(response);
-              setAlert("Successful login!");
-              setSeverity("success");
-              setOpen(true);
-              setTimeout(() => history.push("/directory"), 3000);
-            } else {
-              console.log(response);
-              setAlert(response.statusText);
-              setSeverity("error");
-              setOpen(true);
-            }
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.message != null) {
+                  console.log("Success:", data);
+                  setAlert(data.message);
+                  setSeverity("success");
+                  setOpen(true);
+                  setTimeout(() => history.push("/directory"), 3000);
+                } else {
+                  console.error("Error:", data.error);
+                  setAlert(data.error);
+                  setSeverity("error");
+                  setOpen(true);
+                }
+              });
           }}
         >
           Register

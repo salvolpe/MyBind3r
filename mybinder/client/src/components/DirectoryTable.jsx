@@ -48,7 +48,7 @@ export default function DirectoryTable() {
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
+        <Table stickyHeader aria-label="list of scripts">
           <caption>List of all available scripts</caption>
           <TableHead>
             <TableRow>
