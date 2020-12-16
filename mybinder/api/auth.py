@@ -51,3 +51,12 @@ def register():
             return jsonify({"message": "User {} successfully registered.".format(email)}), 200
         else:
             return jsonify({"error": error}), 400
+
+@auth.route('/logout', methods=['POST'])
+def logout():
+    if request.method == 'POST':
+        session.clear()
+        try:
+            session['email']
+        except KeyError:
+            return jsonify({"message": "Successfully logged out."}), 200
