@@ -1,4 +1,4 @@
-import { React, Component, useState } from "react";
+import { React, useState } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -12,6 +12,11 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+
+import HomeToolbar from "./toolbar/HomeToolbar";
+import InsertToolbar from "./toolbar/InsertToolbar";
+import DrawToolbar from "./toolbar/DrawToolbar";
+import HelpToolbar from "./toolbar/HelpToolbar";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -150,19 +155,19 @@ export default function Header() {
         </AppBar>
         <Typography className={classes.padding} />
         <TabPanel value={value} index={0}>
-          <Button variant="contained">Default</Button>
+          <HomeToolbar />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <Button variant="contained">inserted</Button>
+          <InsertToolbar />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          <Button variant="contained">Draw</Button>
+          <DrawToolbar />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Button variant="contained">v</Button>
         </TabPanel>
         <TabPanel value={value} index={4}>
-          <Button variant="contained">help</Button>
+          <HelpToolbar />
         </TabPanel>
       </div>
     </div>
