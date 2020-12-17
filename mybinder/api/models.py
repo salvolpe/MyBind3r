@@ -76,8 +76,12 @@ class User(db.Model):
 
     email: str
     password: str
+    firstname: str
+    lastname: str
     files: File
 
     email = db.Column(db.String(50), primary_key=True)
     password = db.Column(db.String)
+    firstname = db.Column(db.String)
+    lastname = db.Column(db.String)
     files = db.relationship('File', backref="Object", passive_deletes=True, cascade='all, delete, delete-orphan')
