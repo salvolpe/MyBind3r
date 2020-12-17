@@ -12,7 +12,7 @@ The following resources are required to run this app:
 1. `git clone` this repository
 2. Navigate to `MyBind3r/mybinder/client`
 3. Run `yarn install`
-4. Run `yarn run`
+4. Run `yarn start`
 
 ### Loading Flask server
 1. Open a new terminal instance
