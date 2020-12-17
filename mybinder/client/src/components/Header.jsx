@@ -16,6 +16,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import HomeToolbar from "./toolbar/HomeToolbar";
 import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
+import ViewToolbar from "./toolbar/ViewToolbar";
 import HelpToolbar from "./toolbar/HelpToolbar";
 
 function TabPanel(props) {
@@ -164,7 +165,7 @@ export default function Header() {
           <DrawToolbar />
         </TabPanel>
         <TabPanel value={value} index={3}>
-          <Button variant="contained">v</Button>
+          <ViewToolbar />
         </TabPanel>
         <TabPanel value={value} index={4}>
           <HelpToolbar />

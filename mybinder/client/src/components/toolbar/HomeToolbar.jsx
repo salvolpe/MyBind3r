@@ -41,6 +41,18 @@ export default function VerticalDividers() {
   return (
     <div>
       <Grid container alignItems="center" className={classes.root}>
+          {/* <IconDropdown
+        options={{
+          aria: "Greetings",
+          items: ["hi", "hello"],
+          icon: (
+            <div>
+              <UndoIcon />
+              <UndoIcon />
+            </div>
+          ),
+        }}
+      /> */}
         <Tooltip title="undo">
           <IconButton className={classes.buttons}  color="inherit" aria-label="undo">
               <UndoIcon fontSize='large'/>
