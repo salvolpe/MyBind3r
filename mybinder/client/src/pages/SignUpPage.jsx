@@ -18,6 +18,8 @@ const SignUpPage = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [open, setOpen] = useState(false);
   const [alert, setAlert] = useState("");
   const [severity, setSeverity] = useState("success");
@@ -44,15 +46,17 @@ const SignUpPage = () => {
         <form noValidate>
           <TextField
             required
-            id="first_name"
+            id="firstname"
             label="First Name"
             variant="outlined"
+            onChange={(e) => setFirstName(e.target.value)}
           />
           <TextField
             required
-            id="last_name"
+            id="lastname"
             label="Last Name"
             variant="outlined"
+            onChange={(e) => setLastName(e.target.value)}
           />
           <TextField
             required
@@ -79,7 +83,7 @@ const SignUpPage = () => {
         <Button
           variant="outlined"
           onClick={async () => {
-            const user = { email, password };
+            const user = { email, password, firstname, lastname };
             const response = await fetch("/auth/register", {
               method: "POST",
               headers: {
