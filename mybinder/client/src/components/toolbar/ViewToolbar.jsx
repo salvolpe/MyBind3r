@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,17 +50,33 @@ export default function VerticalDividers() {
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="page-view">
-        <IconButton className={classes.buttons} color="inherit" aria-label="page-view">
-        <Icon className= "fas fa-book-open" />
-            <ArrowDropDownIcon className={classes.dropdown}/>
-        </IconButton>
+        <IconDropdown
+                options={{
+                aria: "page-view",
+                items: ["Script-Only", "Full Bind3r", "Multi-Page"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-book-open" />
+                      Page View
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Tooltip title="layers">
-          <IconButton className={classes.buttons} color="inherit" aria-label="layers">
-            <Icon className= "fas fa-layer-group"/>
-            <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "layers",
+                items: ["Rehearsal Script", "Call Script", "Tech-Tuesdays", "+ New Layer"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-layer-group" />
+                      Page View
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
             
       </Grid>

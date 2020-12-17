@@ -6,6 +6,7 @@ import Divider from '@material-ui/core/Divider';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
+import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {

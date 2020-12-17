@@ -11,8 +11,8 @@ import RedoIcon from '@material-ui/icons/Redo';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
+import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,18 +41,6 @@ export default function VerticalDividers() {
   return (
     <div>
       <Grid container alignItems="center" className={classes.root}>
-          {/* <IconDropdown
-        options={{
-          aria: "Greetings",
-          items: ["hi", "hello"],
-          icon: (
-            <div>
-              <UndoIcon />
-              <UndoIcon />
-            </div>
-          ),
-        }}
-      /> */}
         <Tooltip title="undo">
           <IconButton className={classes.buttons}  color="inherit" aria-label="undo">
               <UndoIcon fontSize='large'/>
@@ -67,10 +55,17 @@ export default function VerticalDividers() {
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="copy-options">
-          <IconButton className={classes.buttons} color="inherit" aria-label="copy-options">
-          <Icon className= "fas fa-clipboard" />
-              <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+            <IconDropdown
+                options={{
+                aria: "copy-options",
+                items: [<Icon className= "fas fa-copy" />,<Icon className= "fas fa-cut" />, <Icon className= "fas fa-paste" />],
+                icon: (
+                    <div>
+                    <Icon className= "fas fa-clipboard" />
+                    <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
@@ -107,22 +102,45 @@ export default function VerticalDividers() {
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="align-otions">
-          <IconButton className={classes.buttons} color="inherit" aria-label="align-options">
-          <Icon className= "fas fa-align-left"/>
-            <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "align-options",
+                items: [<Icon className= "fas fa-align-left" />,<Icon className= "fas fa-align-center" />, 
+                    <Icon className= "fas fa-align-right" />, <Icon className= "fas fa-align-justify" />],
+                icon: (
+                    <div>
+                    <Icon className= "fas fa-align-left" />
+                    <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
         <Tooltip title="list-options">
-        <IconButton className={classes.buttons} color="inherit" aria-label="list-option">
-            <Icon className= "fas fa-list-ul"/>
-            <ArrowDropDownIcon className={classes.dropdown}/>
-        </IconButton>
+        <IconDropdown
+                options={{
+                aria: "list-option",
+                items: [<Icon className= "fas fa-list-ul" />,<Icon className= "fas fa-list" />, 
+                    <Icon className= "fas fa-list-alt" />],
+                icon: (
+                    <div>
+                    <Icon className= "fas fa-list-ul" />
+                    <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
         <Tooltip title="numbered-list-options">
-          <IconButton className={classes.buttons} color="inherit" aria-label="numbered-list-options">
-            <Icon className= "fas fa-list-ol"/>
-              <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "numbered-list-options",
+                items: [<Icon className= "fas fa-list-ol" />,<Icon className= "fas fa-list-ul" />],
+                icon: (
+                    <div>
+                    <Icon className= "fas fa-list-ol" />
+                    <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
             
       </Grid>

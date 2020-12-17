@@ -5,10 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Icon from '@material-ui/core/Icon';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import PersonIcon from '@material-ui/icons/Person';
-import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
+import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,47 +36,75 @@ export default function VerticalDividers() {
     <div>
       <Grid container alignItems="center" className={classes.root}>
         <Tooltip title="actor">
-          <IconButton className={classes.buttons}  color="inherit" aria-label="actor">
-              <PersonIcon fontSize='large'/>
-              Actor
-              <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "actor",
+                items: ["Benedick", "Leonato", "Don John", "Beatrice", "Hero", "Ursula", "+ New Actor"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-user" />
+                      Actor
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="object">
-          <IconButton className={classes.buttons} color="inherit" aria-label="object">
-          <Icon className= "fas fa-toolbox" />
-          Object
-              <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "object",
+                items: ["+ New Object"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-toolbox" />
+                      Object
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="floor-plan">
-        <IconButton className={classes.buttons} color="inherit" aria-label="floor-plan">
-        <Icon className= "fas fa-object-group" />
-            Floor Plan
-            <ArrowDropDownIcon className={classes.dropdown}/>
-        </IconButton>
+        <IconDropdown
+                options={{
+                aria: "floor-plan",
+                items: ["Beatrice Room", "Hero Room", "Hero Hallway", "Ursula Basement", "+ New Floor Plan"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-object-group" />
+                        Floor Plan
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
 
         <Tooltip title="tags">
-          <IconButton className={classes.buttons} color="inherit" aria-label="tags">
-            <Icon className= "fas fa-tags"/>
-                Tags
-            <ArrowDropDownIcon className={classes.dropdown}/>
-          </IconButton>
+          <IconDropdown
+                options={{
+                aria: "tags",
+                items: ["Blocking", "Lights", "Video", "Sound", "Props", "+ New Floor Plan"],
+                icon: (
+                    <div>
+                      <Icon className= "fas fa-tags"/>
+                        Tags
+                      <ArrowDropDownIcon className={classes.dropdown}/>
+                    </div>
+                ),
+            }} />
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
 
-        <Tooltip title="tags">
-          <IconButton className={classes.buttons} color="inherit" aria-label="tags">
+        <Tooltip title="image">
+          <IconButton className={classes.buttons} color="inherit" aria-label="image">
             <Icon className= "fas fa-image"/>
                 Image
           </IconButton>
