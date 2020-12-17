@@ -109,7 +109,7 @@ export default function Header() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["some", "fake", "options"].map((text, index) => (
+        {["Back to Scripts", "New Script", "Save", "Import", "Export", "Print"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
