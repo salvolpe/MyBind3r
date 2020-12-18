@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Grid, makeStyles, Typography } from "@material-ui/core";
-import {CopyrightIcon} from '@material-ui/icons/Copyright'; 
 import { useHistory } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
 import clip from "../assets/scene.png"; 
@@ -72,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: '5.25%',
     paddingLeft: '3.0%',
   },
-  
+
   left: {
     display: "flex", 
     alignItems: "center",
