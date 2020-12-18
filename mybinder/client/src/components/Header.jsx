@@ -18,6 +18,7 @@ import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
 import ViewToolbar from "./toolbar/ViewToolbar";
 import HelpToolbar from "./toolbar/HelpToolbar";
+import { Divider } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -28,7 +29,8 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
-      {...other}>
+      {...other}
+    >
       {value === index && (
         <Box>
           <Typography>{children}</Typography>
@@ -55,8 +57,8 @@ const AntTab = withStyles((theme) => ({
     textTransform: "none",
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing(4),
-    color: "white",
+    marginRight: theme.spacing(2),
+    color: "black",
     fontFamily: [
       "-apple-system",
       "BlinkMacSystemFont",
@@ -109,7 +111,14 @@ export default function Header() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Back to Scripts", "New Script", "Save", "Import", "Export", "Print"].map((text, index) => (
+        {[
+          "Back to Scripts",
+          "New Script",
+          "Save",
+          "Import",
+          "Export",
+          "Print",
+        ].map((text, index) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
           </ListItem>
@@ -121,8 +130,8 @@ export default function Header() {
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
-        <AppBar position="static">
-          <Toolbar>
+        <AppBar position="static" color="transparent" elevation="1">
+          <Toolbar className={classes.toolbar} disableGutters variant="dense">
             {["File"].map((anchor) => (
               <div key={anchor}>
                 <Button
@@ -152,23 +161,22 @@ export default function Header() {
               <AntTab label="Help" {...openTabs(4)} />
             </AntTabs>
           </Toolbar>
+          <TabPanel value={value} index={0}>
+            <HomeToolbar />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <InsertToolbar />
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <DrawToolbar />
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+            <ViewToolbar />
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+            <HelpToolbar />
+          </TabPanel>
         </AppBar>
-        <Typography className={classes.padding} />
-        <TabPanel value={value} index={0}>
-          <HomeToolbar />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <InsertToolbar />
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          <DrawToolbar />
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          <ViewToolbar />
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          <HelpToolbar />
-        </TabPanel>
       </div>
     </div>
   );
@@ -185,8 +193,8 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing(4),
-    color: "white",
+    marginRight: theme.spacing(1),
+    color: "black",
     fontFamily: [
       "-apple-system",
       "BlinkMacSystemFont",
@@ -208,5 +216,12 @@ const useStyles = makeStyles((theme) => ({
   },
   demo1: {
     backgroundColor: theme.palette.background.paper,
+  },
+  appbar: {
+    borderBottom: "1px solid black",
+  },
+  toolbar: {
+    height: 50,
+    borderBottom: "1px solid black",
   },
 }));
