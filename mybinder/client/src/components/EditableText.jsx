@@ -1,23 +1,46 @@
 import React, { useState, Component } from "react";
-import Draggable from 'react-draggable';
-import {
-    TextField
-  } from "@material-ui/core";
+import {Rnd} from 'react-rnd';
+import { TextareaAutosize, TextField } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
+import { sizing } from '@material-ui/system';
+
+  var Resizable = require('react-resizable').Resizable;
+
+  const styles = theme => ({
+    notchedOutline: {
+      borderWidth: "3px",
+    },
+    
+  });
 
   class EditableText extends React.Component {
     constructor(props) {
         super(props);
          this.state = {
-          text: "Note"
+          text: "Note",
+          width: "auto",
+          height: "auto"
         };
     }
-    changeColor = (e) => {
+    
+    updateText = (e) => {
         this.setState({text: e.target.value});
     }
+    updateSize = (w, h) => {
+        this.setState({width: w, height: h});
+        console.log(this.state.width);
+    }
+
     render() {
+        const { classes } = this.props;
         return (
-        <Draggable>
-            <div>
+        <div>
+        <Rnd
+            size={{ width: this.state.width,  height: this.state.height }}
+            onResizeStop={(e, direction, ref, delta, position) => {
+              this.updateSize(ref.style.width, ref.style.height);
+            }}
+            enableResizing={{ top:false, right:true, bottom:false, left:true, topRight:false, bottomRight:false, bottomLeft:false, topLeft:false }}>
             <form noValidate>
                 <TextField
                     //classname="apply-font"
@@ -27,14 +50,16 @@ import {
                     multiline
                     rows={2}
                     rowsMax={Infinity}
+                    style ={{width: '100%'}}
+                    inputStyle ={{width: '100%'}}
                     placeholder="Type..."
-                    onChange={this.changeColor}
-                    inputProps={{ disableUnderline: true }}
+                    onChange={this.updateText}
                 />
             </form>
-            </div>
-        </Draggable>
+        </Rnd>
+        </div>
+        
         );
       }
   }
-  export default EditableText;
+  export default withStyles(styles)(EditableText);
