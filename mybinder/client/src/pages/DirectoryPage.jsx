@@ -11,6 +11,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
 import DirectoryTable from "../components/DirectoryTable";
+import panel from "../assets/side_panel.png"
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -77,14 +78,21 @@ const DirectoryPage = () => {
           </Alert>
         </Snackbar>
       </Grid>
-      <Grid container direction="row">
-        <Grid item xs container direction="column">
-          <Typography>Scripts</Typography>
-        </Grid>
-        <Grid item>
+      <Grid className={classes.middleGrid}>
+        <div className={classes.middleGridLeftContainer}>
+        <img src={panel} max-width="100%" height="auto" />
+        </div>
+        <div className={classes.middleGridRightContainer}>
+          <div className={classes.middleGridAround}></div>
           <DirectoryTable />
-        </Grid>
+          <div className={classes.middleGridAround}></div>
+        </div>
       </Grid>
+      <div>
+      <div className={classes.bottomGrid}>
+      <Typography>&copy; Unicorns, LLC</Typography>
+      </div>
+    </div>
     </div>
   );
 };
@@ -122,7 +130,44 @@ const useStyles = makeStyles((theme) => ({
 
   buttons: {
     paddingTop: 9,
-    width: 113
+    width: 113,
+    textAlign: "center"
+  }, 
+
+  middleGrid: {
+      display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },   
+  
+  middleGridLeftContainer: {
+    display: "flex", 
+    justifyContent: "center",
+    alignItems: "center"
+
+  }, 
+
+  middleGridRightContainer: {
+    display: "flex", 
+    backgroundColor: " rgba(205, 205, 205, 0.6)",
+    justifyContent: "center", 
+    alignItems: "center",
+    width: "80%",
+    height: "100%",
+    flexDirection: "column"
+  },
+
+  bottomGrid: {
+    height: 90,
+    borderTop: "1px solid #7C7C7C",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  middleGridAround: { 
+    backgroundColor: "rgba(205, 205, 205, 0.6)",
+    height: 190
   }
 
 }));
