@@ -66,13 +66,13 @@ const useStyles = makeStyles((theme) => ({
   landingHeader: {
     display: "flex",
     height: 90,
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid #7C7C7C",
     justifyContent: "space-between",
     alignItems: "center",
     paddingRight: '5.25%',
     paddingLeft: '3.0%',
-    flex:1
   },
+  
   left: {
     display: "flex", 
     alignItems: "center",
@@ -125,9 +125,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   bottomGrid: {
-    flex:1,
     height: 90,
-    borderTop: "1px solid black",
+    borderTop: "1px solid #7C7C7C",
     display: "flex", 
     alignItems: "center",
     justifyContent: "center"
