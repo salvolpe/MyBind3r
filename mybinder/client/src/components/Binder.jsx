@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Card, Grid, Icon, Typography } from "@material-ui/core";
+import { Card, CardMedia, Grid, Icon, Typography } from "@material-ui/core";
+
+import sampleScript from "../assets/much_ado_3_1.png";
 
 const Binder = () => {
   const classes = useStyles();
@@ -39,11 +41,9 @@ const Binder = () => {
           />
         </div>
         <Card className={classes.binderSpaceLeft} elevation={8}>
-          <Typography variant="h1">Hello</Typography>
+          <img className={classes.script} src={sampleScript} />
         </Card>
-        <Card className={classes.binderSpaceRight} elevation={8}>
-          <Typography variant="h2">We will become a binder</Typography>
-        </Card>
+        <Card className={classes.binderSpaceRight} elevation={8}></Card>
       </Grid>
     </div>
   );
@@ -82,5 +82,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "column",
+  },
+  script: {
+    width: "100%",
+    zIndex: 1,
   },
 }));
