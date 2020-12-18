@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
 import DirectoryTable from "../components/DirectoryTable";
 
@@ -18,6 +18,7 @@ function Alert(props) {
 
 const DirectoryPage = () => {
   const history = useHistory();
+  const { user } = useParams();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [alert, setAlert] = useState("");
@@ -33,33 +34,42 @@ const DirectoryPage = () => {
   return (
     <div>
       <Grid className={classes.landingHeader}>
-        <Button onClick={() => history.push("/")}>
-          <img
-            src={logo}
-            width={80}
-            height={80}
-            alt="Logo: Stick figure reading binder with 3r on the inside"
-          />
-        </Button>
-        <Button onClick={async () => {
-          await fetch("/auth/logout", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(),
-            }).then((value) => {
-              console.log(value.json()["message"]);
-              setAlert("Successful logout!");
-              setSeverity("success");
-              setOpen(true);
-              setTimeout(() => history.push("/"), 2000);
-            }).catch((error) => {
-              console.log("Error");
-            });
-          }} 
-          variant="outlined">
-            Sign Out
+        <Grid className={classes.left}>
+          <Button onClick={() => history.push("/")}>
+            <img
+              src={logo}
+              width={80}
+              height={80}
+              alt="Logo: Stick figure reading binder with 3r on the inside"
+            />
+            <Typography variant="h4" className={classes.title}>
+              MyBind3r
+            </Typography>
+          </Button>
+        </Grid>
+        <Button className={classes.buttons}
+          onClick={async () => {
+            await fetch("/auth/logout", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(),
+            })
+              .then((value) => {
+                console.log(value.json()["message"]);
+                setAlert("Successful logout!");
+                setSeverity("success");
+                setOpen(true);
+                setTimeout(() => history.push("/"), 2000);
+              })
+              .catch((error) => {
+                console.log("Error");
+              });
+          }}
+          variant="outlined"
+        >
+          Sign Out
         </Button>
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
           <Alert onClose={handleClose} severity={severity}>
@@ -94,10 +104,27 @@ const useStyles = makeStyles((theme) => ({
   landingHeader: {
     display: "flex",
     height: 90,
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid  #7C7C7C",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingRight: "5.25%",
+    paddingLeft: "3.0%",
   },
+  left: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  title: {
+    paddingTop: 10,
+    textTransform: "none"
+  },
+
+  buttons: {
+    paddingTop: 9,
+    width: 113
+  }
+
 }));
 
 export default DirectoryPage;

@@ -56,6 +56,7 @@ export default function IconDropdown({ options }) {
       <IconButton
         ref={anchorRef}
         aria-controls={open ? `${options.aria}-list-grow` : undefined}
+        aria-label={options.aria}
         aria-haspopup="true"
         onClick={handleToggle}
       >
