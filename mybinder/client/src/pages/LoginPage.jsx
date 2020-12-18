@@ -56,6 +56,34 @@ const LoginPage = () => {
             label="Password"
             variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                const user = { email, password };
+                const response = await fetch("/auth/login", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(user),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.message != null) {
+                      console.log("Success:", data);
+                      setAlert(data.message);
+                      setSeverity("success");
+                      setOpen(true);
+                      setTimeout(() => history.push("/directory"), 3000);
+                    } else {
+                      console.error("Error:", data.error);
+                      setAlert(data.error);
+                      setSeverity("error");
+                      setOpen(true);
+                    }
+                  });
+              }
+            }}
+           
           />
         </form>
         <Button

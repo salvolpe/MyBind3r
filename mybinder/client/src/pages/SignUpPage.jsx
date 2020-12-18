@@ -78,6 +78,33 @@ const SignUpPage = () => {
             id="repeat-password"
             label="Re-enter password"
             variant="outlined"
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                const user = { email, password, firstname, lastname };
+                const response = await fetch("/auth/register", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(user),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.message != null) {
+                      console.log("Success:", data);
+                      setAlert(data.message);
+                      setSeverity("success");
+                      setOpen(true);
+                      setTimeout(() => history.push("/directory"), 3000);
+                    } else {
+                      console.error("Error:", data.error);
+                      setAlert(data.error);
+                      setSeverity("error");
+                      setOpen(true);
+                    }
+                  });
+              }
+            }}
           />
         </form>
         <Button
