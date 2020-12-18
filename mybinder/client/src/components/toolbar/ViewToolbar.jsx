@@ -57,10 +57,10 @@ export default function ViewToolbar() {
 
         <Divider orientation="vertical" flexItem />
 
-        <Tooltip title="page-view">
+        <Tooltip title="layers">
           <IconDropdown
             options={{
-              aria: "page-view",
+              aria: "Page View",
               items: ["Script-Only", "Full Bind3r", "Multi-Page"],
               icon: (
                 <div>
@@ -86,7 +86,7 @@ export default function ViewToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-layer-group" />
-                  Page View
+                  Layers
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),

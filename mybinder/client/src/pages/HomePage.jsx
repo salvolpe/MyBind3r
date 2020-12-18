@@ -79,20 +79,20 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     paddingTop: 10,
-    textTransform: "none"
+    textTransform: "none",
   },
 
   buttons: {
     paddingTop: 9,
-    width: 113
+    display: "flex",
   },
 
   leftButton: {
-    marginRight: 8
+    marginRight: 8,
   },
 
   rightButton: {
-    marginRight: 8
+    marginRight: 8,
   },
 
   middleGrid: {

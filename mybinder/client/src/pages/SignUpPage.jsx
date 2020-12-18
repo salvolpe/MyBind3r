@@ -5,13 +5,13 @@ import {
   Snackbar,
   TextField,
   Typography,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Link } from "../utils/react-router";
 import { useHistory } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
-import clip from "../assets/scene.png"; 
+import clip from "../assets/scene.png";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -37,7 +37,7 @@ const SignUpPage = () => {
 
   return (
     <div>
-        <Grid className={classes.landingHeader}>
+      <Grid className={classes.landingHeader}>
         <Grid className={classes.left}>
           <Button onClick={() => history.push("/")}>
             <img
@@ -46,9 +46,9 @@ const SignUpPage = () => {
               height={80}
               alt="Logo: Stick figure reading binder with 3r on the inside"
             />
-          <Typography variant="h4" className={classes.title}>
-            MyBind3r
-          </Typography>
+            <Typography variant="h4" className={classes.title}>
+              MyBind3r
+            </Typography>
           </Button>
         </Grid>
         <div className={classes.buttons}>
@@ -62,112 +62,117 @@ const SignUpPage = () => {
           </Link>
         </div>
       </Grid>
-        <div>
-          <Grid className={classes.middleGrid}> 
+      <div>
+        <Grid className={classes.middleGrid}>
           <Grid className={classes.middleGridLeftContainer}>
             <Typography className={classes.createMessage}>
               Create Your Account
             </Typography>
             <form noValidate>
-              <TextField className={classes.userInput}
-              required
-              id="firstname"
-              label="First Name"
+              <TextField
+                className={classes.userInput}
+                required
+                id="firstname"
+                label="First Name"
+                variant="outlined"
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </form>
+            <form noValidate>
+              <TextField
+                className={classes.userInput}
+                required
+                id="lastname"
+                label="Last Name"
+                variant="outlined"
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </form>
+            <form noValidate>
+              <TextField
+                className={classes.userInput}
+                required
+                type="email"
+                id="email"
+                label="Email"
+                variant="outlined"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </form>
+            <form noValidate>
+              <TextField
+                className={classes.userInput}
+                required
+                id="password"
+                label="Password"
+                variant="outlined"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </form>
+            <form noValidate>
+              <TextField
+                className={classes.userInputBottom}
+                required
+                id="repeat-password"
+                label="Re-enter password"
+                variant="outlined"
+                onKeyDown={async (e) => {
+                  if (e.key === "Enter") {
+                    document.getElementById("register").click();
+                  }
+                }}
+              />
+            </form>
+            <Button
+              className={classes.registerButton}
+              id="register"
               variant="outlined"
-              onChange={(e) => setFirstName(e.target.value)}
-             />
-            </form>
-            <form noValidate>
-            <TextField className={classes.userInput}
-            required
-            id="lastname"
-            label="Last Name"
-            variant="outlined"
-            onChange={(e) => setLastName(e.target.value)}
-            />
-            </form>
-            <form noValidate>
-            <TextField className={classes.userInput}
-            required
-            type="email"
-            id="email"
-            label="Email"
-            variant="outlined"
-            onChange={(e) => setEmail(e.target.value)}
-             />
-            </form>
-            <form noValidate>
-            <TextField className={classes.userInput}
-            required
-            id="password"
-            label="Password"
-            variant="outlined"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          </form>
-          <form noValidate>
-          <TextField className={classes.userInputBottom}
-            required
-            id="repeat-password"
-            label="Re-enter password"
-            variant="outlined"
-            onKeyDown={async (e) => {
-              if (e.key === "Enter") {
-                document.getElementById("register").click();
-              }
-            }}
-          />
-          </form>
-          <Button className={classes.registerButton}
-          id="register"
-          variant="outlined"
-          onClick={async () => {
-            const user = { email, password, firstname, lastname };
-            const name = email.substring(0, email.indexOf("@"));
-            const response = await fetch("/auth/register", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(user),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                if (data.message != null) {
-                  console.log("Success:", data);
-                  setAlert(data.message);
-                  setSeverity("success");
-                  setOpen(true);
-                  setTimeout(
-                    () => history.push(`/${name}/directory`, name),
-                    3000
-                  );
-  
-                } else {
-                  console.error("Error:", data.error);
-                  setAlert(data.error);
-                  setSeverity("error");
-                  setOpen(true);
-                }
-              });
-          }}
-        >
-          Register Here
-        </Button>
+              onClick={async () => {
+                const user = { email, password, firstname, lastname };
+                const name = email.substring(0, email.indexOf("@"));
+                const response = await fetch("/auth/register", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(user),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.message != null) {
+                      console.log("Success:", data);
+                      setAlert(data.message);
+                      setSeverity("success");
+                      setOpen(true);
+                      setTimeout(
+                        () => history.push(`/${name}/directory`, name),
+                        3000
+                      );
+                    } else {
+                      console.error("Error:", data.error);
+                      setAlert(data.error);
+                      setSeverity("error");
+                      setOpen(true);
+                    }
+                  });
+              }}
+            >
+              Register Here
+            </Button>
           </Grid>
           <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity={severity}>
-            {alert}
-          </Alert>
-        </Snackbar>
-            <img src={clip} max-width="80%" height="auto" />
-          </Grid>
-        </div>
-        <div>
-          <div className={classes.bottomGrid}>
+            <Alert onClose={handleClose} severity={severity}>
+              {alert}
+            </Alert>
+          </Snackbar>
+          <img src={clip} max-width="80%" height="auto" />
+        </Grid>
+      </div>
+      <div>
+        <div className={classes.bottomGrid}>
           <Typography>&copy; Unicorns, LLC</Typography>
-          </div>
         </div>
+      </div>
     </div>
   );
 };
@@ -192,12 +197,12 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     paddingTop: 10,
-    textTransform: "none"
+    textTransform: "none",
   },
 
   buttons: {
     paddingTop: 9,
-    width: 113
+    display: "flex",
   },
 
   leftButton: {
@@ -212,16 +217,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    marginLeft: 150
+    marginLeft: 150,
   },
 
   middleGridLeftContainer: {
-    display: "flex", 
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection:"column"
-
-  }, 
+    flexDirection: "column",
+  },
 
   bottomGrid: {
     height: 90,
@@ -233,32 +237,31 @@ const useStyles = makeStyles((theme) => ({
 
   registerButton: {
     fontSize: 20,
-    color: "#FFFFFF", 
+    color: "#FFFFFF",
     backgroundColor: "#4DA6FF",
     borderRadius: 20,
     width: 206,
     height: 62,
-    border: "none"
+    border: "none",
   },
 
   createMessage: {
     fontSize: 38,
-    marginBottom: 50
-  }, 
+    marginBottom: 50,
+  },
 
   userInput: {
     width: 530,
     height: 81,
-    marginTop: 23
-  }, 
-  
+    marginTop: 23,
+  },
+
   userInputBottom: {
     width: 530,
     height: 81,
     marginTop: 23,
-    marginBottom: 34
-  }
+    marginBottom: 34,
+  },
 }));
-
 
 export default SignUpPage;
