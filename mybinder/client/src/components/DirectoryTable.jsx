@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import MaterialTable from "material-table"; //Cite this
 
 export default function DirectoryTable() {
   const classes = useStyles();
   const history = useHistory();
+  const { user } = useParams();
   const columns = [
     { title: "Title", field: "title" },
     {
@@ -21,7 +22,11 @@ export default function DirectoryTable() {
   ];
 
   const [data, setData] = useState([
-    { title: "Much Ado About Nothing", owner: "Me", lastModified: "12/15/20" },
+    {
+      title: "Much Ado About Nothing",
+      owner: `${user}`,
+      lastModified: "12/15/20",
+    },
     { title: "The Little Mermaid", owner: "Prezbo", lastModified: "1/2/19" },
   ]);
 
@@ -35,7 +40,7 @@ export default function DirectoryTable() {
           icon: "edit",
           tooltip: "Edit Script",
           onClick: () => {
-            history.push("/bind3r");
+            history.push(`/${user}/bind3r/${data.title}`);
           },
         },
         {

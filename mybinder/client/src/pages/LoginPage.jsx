@@ -5,8 +5,9 @@ import {
   Snackbar,
   TextField,
   makeStyles,
-  Typography
+  Typography,
 } from "@material-ui/core";
+import { Link } from "../utils/react-router";
 import MuiAlert from "@material-ui/lab/Alert";
 import { useHistory } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
@@ -34,26 +35,20 @@ const LoginPage = () => {
 
   return (
     <div>
-        <Grid className={classes.landingHeader}>
-          <Grid className={classes.left}>
-        <Button onClick={() => history.push("/")}>
-          <img
-            src={logo}
-            width={80}
-            height={80}
-            alt="Logo: Stick figure reading binder with 3r on the inside"
-          />
-        </Button>
-        <Typography variant="h4" className={classes.title}>MyBind3r</Typography>
+      <Grid className={classes.landingHeader}>
+        <Grid className={classes.left}>
+          <Button onClick={() => history.push("/")}>
+            <img
+              src={logo}
+              width={80}
+              height={80}
+              alt="Logo: Stick figure reading binder with 3r on the inside"
+            />
+          </Button>
+          <Typography variant="h4" className={classes.title}>
+            MyBind3r
+          </Typography>
         </Grid>
-        <div className={classes.buttons}>
-          <Button variant="outlined" onClick={() => history.push("/login")} className={classes.leftButton}>
-            Sign In
-          </Button>
-          <Button variant="outlined" onClick={() => history.push("/sign-up")}>
-            Sign-Up
-          </Button>
-        </div>
       </Grid>
       <Grid container direction="column">
         <form noValidate>
@@ -71,12 +66,19 @@ const LoginPage = () => {
             label="Password"
             variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={async (e) => {
+              if (e.key === "Enter") {
+                document.getElementById("login").click();
+              }
+            }}
           />
         </form>
         <Button
+          id="login"
           variant="outlined"
           onClick={async () => {
             const user = { email, password };
+            const name = email.substring(0, email.indexOf("@"));
             const response = await fetch("/auth/login", {
               method: "POST",
               headers: {
@@ -91,7 +93,10 @@ const LoginPage = () => {
                   setAlert(data.message);
                   setSeverity("success");
                   setOpen(true);
-                  setTimeout(() => history.push("/directory"), 3000);
+                  setTimeout(
+                    () => history.push(`/${name}/directory`, name),
+                    3000
+                  );
                 } else {
                   console.error("Error:", data.error);
                   setAlert(data.error);
@@ -110,9 +115,9 @@ const LoginPage = () => {
         </Snackbar>
       </Grid>
       <div>
-      <Typography className={classes.bottomGrid}> 
-             &copy; Unicorns, LLC
-          </Typography>
+        <Typography className={classes.bottomGrid}>
+          &copy; Unicorns, LLC
+        </Typography>
       </div>
     </div>
   );
@@ -125,39 +130,40 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: "1px solid #7C7C7C",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingRight: '5.25%',
-    paddingLeft: '3.0%',
+    paddingRight: "5.25%",
+    paddingLeft: "3.0%",
   },
-  
+  buttonLink: {
+    textDecoration: "none",
+  },
   left: {
-    display: "flex", 
+    display: "flex",
     alignItems: "center",
   },
 
   title: {
-    paddingTop: 10
+    paddingTop: 10,
   },
 
   buttons: {
-    paddingTop: 9
+    paddingTop: 9,
   },
 
   leftButton: {
-     marginRight:8
-  }, 
+    marginRight: 8,
+  },
 
   rightButton: {
-    marginRight:8
-  },   
+    marginRight: 8,
+  },
 
   bottomGrid: {
     height: 90,
     borderTop: "1px solid #7C7C7C",
-    display: "flex", 
+    display: "flex",
     alignItems: "center",
-    justifyContent: "center"
-  }
-  
+    justifyContent: "center",
+  },
 }));
 
 export default LoginPage;
