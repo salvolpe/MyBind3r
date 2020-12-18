@@ -20,10 +20,10 @@ const HomePage = () => {
               height={80}
               alt="Logo: Stick figure reading binder with 3r on the inside"
             />
+            <Typography variant="h4" className={classes.title}>
+              MyBind3r
+            </Typography>
           </Button>
-          <Typography variant="h4" className={classes.title}>
-            MyBind3r
-          </Typography>
         </Grid>
         <div className={classes.buttons}>
           <Link className={classes.buttonLink} to={"/login"}>
@@ -79,18 +79,20 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     paddingTop: 10,
+    textTransform: "none"
   },
 
   buttons: {
     paddingTop: 9,
+    width: 113
   },
 
   leftButton: {
-    marginRight: 8,
+    marginRight: 8
   },
 
   rightButton: {
-    marginRight: 8,
+    marginRight: 8
   },
 
   middleGrid: {
@@ -102,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
   middleGridTextTop: {
     marginTop: -40,
     width: 478,
-    heigth: 135,
+    height: 135,
     fontSize: 48,
     lineHeight: "116%",
   },

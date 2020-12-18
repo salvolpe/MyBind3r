@@ -35,45 +35,61 @@ const LoginPage = () => {
 
   return (
     <div>
-      <Grid className={classes.landingHeader}>
-        <Grid className={classes.left}>
-          <Button onClick={() => history.push("/")}>
-            <img
-              src={logo}
-              width={80}
-              height={80}
-              alt="Logo: Stick figure reading binder with 3r on the inside"
-            />
-          </Button>
-          <Typography variant="h4" className={classes.title}>
-            MyBind3r
-          </Typography>
-        </Grid>
-      </Grid>
-      <Grid container direction="column">
+    <Grid className={classes.landingHeader}>
+    <Grid className={classes.left}>
+      <Button onClick={() => history.push("/")}>
+        <img
+          src={logo}
+          width={80}
+          height={80}
+          alt="Logo: Stick figure reading binder with 3r on the inside"
+        />
+      <Typography variant="h4" className={classes.title}>
+        MyBind3r
+      </Typography>
+      </Button>
+    </Grid>
+    <div className={classes.buttons}>
+      <Link className={classes.buttonLink} to={"/login"}>
+        <Button variant="outlined" className={classes.leftButton}>
+          Sign In
+        </Button>
+      </Link>
+      <Link className={classes.buttonLink} to={"/sign-up"}>
+        <Button variant="outlined">Sign-Up</Button>
+      </Link>
+    </div>
+  </Grid>
+    <div>
+      <Grid className={classes.middleGrid}> 
+      <Grid className={classes.middleGridLeftContainer}>
+        <Typography className={classes.welcomeMessage}>
+          Welcome Back!
+        </Typography>
         <form noValidate>
-          <TextField
-            required
-            type="email"
-            id="email"
-            label="Email"
-            variant="outlined"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            required
-            id="password"
-            label="Password"
-            variant="outlined"
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyDown={async (e) => {
-              if (e.key === "Enter") {
-                document.getElementById("login").click();
-              }
-            }}
-          />
-        </form>
-        <Button
+          <TextField className={classes.userInputTop}
+          required
+          id="email"
+          label="Email"
+          variant="outlined"
+          onChange={(e) => setEmail(e.target.value)}
+         />
+         </form>
+         <form noValidate>
+        <TextField className={classes.userInputBottom}
+        required
+        id="password"
+        label="Password"
+        variant="outlined"
+        onChange={(e) =>setPassword(e.target.value)}
+        onKeyDown-={async (e) => {
+          if(e.key == "Enter"){
+            document.getElementById("login").click()
+          }
+        }}
+        />
+      </form>
+      <Button className={classes.loginButton}
           id="login"
           variant="outlined"
           onClick={async () => {
@@ -106,20 +122,23 @@ const LoginPage = () => {
               });
           }}
         >
-          Log In
+        Log In
         </Button>
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity={severity}>
-            {alert}
-          </Alert>
-        </Snackbar>
+      <Alert onClose={handleClose} severity={severity}>
+        {alert}
+      </Alert>
+    </Snackbar>
       </Grid>
-      <div>
-        <Typography className={classes.bottomGrid}>
-          &copy; Unicorns, LLC
-        </Typography>
+        <img src={clip} max-width="80%" height="auto" />
+      </Grid>
+    </div>
+    <div>
+      <div className={classes.bottomGrid}>
+      <Typography>&copy; Unicorns, LLC</Typography>
       </div>
     </div>
+</div>
   );
 };
 
@@ -143,10 +162,12 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     paddingTop: 10,
+    textTransform: "none"
   },
 
   buttons: {
     paddingTop: 9,
+    width: 113
   },
 
   leftButton: {
@@ -164,6 +185,53 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
+
+  middleGrid: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginLeft: 150,
+  },
+
+  middleGridLeftContainer: {
+    display: "flex", 
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection:"column"
+
+  }, 
+  userInputTop: {
+    width: 530,
+    height: 81,
+    marginBottom: 45
+  }, 
+
+  userInputBottom: {
+    width: 530,
+    height: 81,
+    marginBottom: 130
+  },
+
+  welcomeMessage: {
+    fontSize: 45,
+    marginBottom: 120,
+    marginTop: -100,
+    marginLeft: -10
+  }, 
+
+  loginButton: {
+    width: 206,
+    height: 62,
+    backgroundColor: "#4DA6FF",
+    fontSize: 20,
+    color: "#FFFFFF",
+    borderRadius: 20,
+    border:"none",
+    marginLeft: -10
+
+  }
+
 }));
 
 export default LoginPage;
+

@@ -47,7 +47,7 @@ const DirectoryPage = () => {
             </Typography>
           </Button>
         </Grid>
-        <Button
+        <Button className={classes.buttons}
           onClick={async () => {
             await fetch("/auth/logout", {
               method: "POST",
@@ -104,14 +104,27 @@ const useStyles = makeStyles((theme) => ({
   landingHeader: {
     display: "flex",
     height: 90,
-    borderBottom: "1px solid black",
+    borderBottom: "1px solid  #7C7C7C",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingRight: "5.25%",
+    paddingLeft: "3.0%",
   },
   left: {
     display: "flex",
     alignItems: "center",
   },
+
+  title: {
+    paddingTop: 10,
+    textTransform: "none"
+  },
+
+  buttons: {
+    paddingTop: 9,
+    width: 113
+  }
+
 }));
 
 export default DirectoryPage;
