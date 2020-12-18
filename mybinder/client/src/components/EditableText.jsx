@@ -1,10 +1,7 @@
 import React, { useState, Component } from "react";
 import {Rnd} from 'react-rnd';
-import { TextareaAutosize, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { sizing } from '@material-ui/system';
-
-  var Resizable = require('react-resizable').Resizable;
 
   const styles = theme => ({
     notchedOutline: {
@@ -36,6 +33,10 @@ import { sizing } from '@material-ui/system';
         return (
         <div>
         <Rnd
+            default={{
+                x: -1400,
+                y: 10
+            }}
             size={{ width: this.state.width,  height: this.state.height }}
             onResizeStop={(e, direction, ref, delta, position) => {
               this.updateSize(ref.style.width, ref.style.height);
