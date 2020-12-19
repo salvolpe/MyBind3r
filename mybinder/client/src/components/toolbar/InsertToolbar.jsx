@@ -10,13 +10,13 @@ import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height:60,
     width: "fit-content",
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),
-    marginLeft: theme.spacing(1.5),
     "& hr": {
       margin: theme.spacing(0, 0.5),
     },
@@ -51,7 +51,7 @@ export default function InsertToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-user" />
-                  Actor
+                  &nbsp;Actor&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
@@ -69,7 +69,7 @@ export default function InsertToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-toolbox" />
-                  Object
+                  &nbsp;Object&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
@@ -93,7 +93,7 @@ export default function InsertToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-object-group" />
-                  Floor Plan
+                  &nbsp;Floor Plan&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
@@ -118,7 +118,7 @@ export default function InsertToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-tags" />
-                  Tags
+                  &nbsp;Tags&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
@@ -135,7 +135,7 @@ export default function InsertToolbar() {
             aria-label="image"
           >
             <Icon className="fas fa-image" />
-            Image
+            &nbsp;Image
           </IconButton>
         </Tooltip>
       </Grid>

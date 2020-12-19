@@ -17,10 +17,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const setValue = (newValue) => {
+  console.log(newValue); //  { userName: 'jane', age: 43, message:[...] }
+};
+
 export default function IconDropdown({ options }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -39,7 +47,7 @@ export default function IconDropdown({ options }) {
       event.preventDefault();
       setOpen(false);
     }
-  }
+  };
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = useRef(open);
@@ -66,6 +74,7 @@ export default function IconDropdown({ options }) {
         open={open}
         anchorEl={anchorRef.current}
         role={undefined}
+        onChange={handleChange}
         transition
         disablePortal
       >

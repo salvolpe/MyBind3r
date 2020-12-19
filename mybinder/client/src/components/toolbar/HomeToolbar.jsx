@@ -15,23 +15,24 @@ import FormatColorTextIcon from "@material-ui/icons/FormatColorText";
 import IconDropdown from "../IconDropdown";
 
 import FontPicker from "font-picker-react"; //From @samuelmeuli on GitHub
-import { Typography } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: 60,
     width: "fit-content",
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),
-    marginLeft: theme.spacing(1.5),
     "& hr": {
       margin: theme.spacing(0, 0.5),
     },
   },
   buttons: {
     padding: theme.spacing(1.5, 1),
+
   },
   dropdown: {
     margin: theme.spacing(-0.5),
@@ -64,15 +65,17 @@ export default function HomeToolbar() {
             <RedoIcon fontSize="large" />
           </IconButton>
         </Tooltip>
+
         <Divider orientation="vertical" flexItem />
+
         <Tooltip title="copy-options">
           <IconDropdown
             options={{
               aria: "copy-options",
               items: [
-                <Icon className="fas fa-copy" />,
-                <Icon className="fas fa-cut" />,
-                <Icon className="fas fa-paste" />,
+                <Icon className="fas fa-copy" aria-label="copy"/>,
+                <Icon className="fas fa-cut" aria-label="cut"/>,
+                <Icon className="fas fa-paste" aria-label="paste"/>,
               ],
               icon: (
                 <div>
@@ -137,16 +140,17 @@ export default function HomeToolbar() {
             <Icon className="fas fa-highlighter" />
           </IconButton>
         </Tooltip>
+        
         <Divider orientation="vertical" flexItem />
         <Tooltip title="align-otions">
           <IconDropdown
             options={{
               aria: "align-options",
               items: [
-                <Icon className="fas fa-align-left" />,
-                <Icon className="fas fa-align-center" />,
-                <Icon className="fas fa-align-right" />,
-                <Icon className="fas fa-align-justify" />,
+                <Icon className="fas fa-align-left" aria-label="align-left"/>,
+                <Icon className="fas fa-align-center" aria-label="align-right"/>,
+                <Icon className="fas fa-align-right" aria-label="align-center"/>,
+                <Icon className="fas fa-align-justify" aria-label="align-justify"/>,
               ],
               icon: (
                 <div>

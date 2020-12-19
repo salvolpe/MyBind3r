@@ -19,7 +19,6 @@ import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
 import ViewToolbar from "./toolbar/ViewToolbar";
 import HelpToolbar from "./toolbar/HelpToolbar";
-import { Divider } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

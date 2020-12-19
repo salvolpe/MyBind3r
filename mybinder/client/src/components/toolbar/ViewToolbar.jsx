@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Grid from "@material-ui/core/Grid";
@@ -10,13 +10,13 @@ import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: 60,
     width: "fit-content",
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),
-    marginLeft: theme.spacing(1.5),
     "& hr": {
       margin: theme.spacing(0, 0.5),
     },
@@ -34,7 +34,7 @@ export default function ViewToolbar() {
 
   return (
     <div>
-      <Grid container alignItems="center" className={classes.root}>
+      <Grid container alignItems="center" className={classes.root} >
         <Tooltip title="zoom-in">
           <IconButton
             className={classes.buttons}
@@ -65,7 +65,7 @@ export default function ViewToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-book-open" />
-                  Page View
+                  &nbsp;Page View&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
@@ -86,7 +86,7 @@ export default function ViewToolbar() {
               icon: (
                 <div>
                   <Icon className="fas fa-layer-group" />
-                  Layers
+                  &nbsp;Layers&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
               ),
