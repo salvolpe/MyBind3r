@@ -46,11 +46,11 @@ export default function DrawToolbar() {
           </IconButton>
         </Tooltip>
 
-        <Tooltip title="object">
+        <Tooltip title="erase">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="object"
+            aria-label="erase"
           >
             <Icon className="fas fa-eraser" />
             <ArrowDropDownIcon className={classes.dropdown} />

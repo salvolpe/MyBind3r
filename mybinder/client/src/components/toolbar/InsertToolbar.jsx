@@ -113,7 +113,7 @@ export default function InsertToolbar() {
                 "Video",
                 "Sound",
                 "Props",
-                "+ New Floor Plan",
+                "+ New Tag",
               ],
               icon: (
                 <div>
