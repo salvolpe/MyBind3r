@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="img/mybind3r_logo.png">
+    <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
+<style>
+
+    html{
+        font-family: "Roboto"; 
+    }
+
+    .container{
+        width: 1440px; 
+    }
+
+    .button{
+        background-color: white; 
+        text-align: 'center';
+        text-decoration: none; 
+        border: 1px solid #000000;
+        font-size: 20px; 
+        width: 113px; 
+        height: 40px; 
+
+    }
+
+    .button:hover{
+        text-decoration: underline; 
+    }
+
+
+    #navigation{
+        height: 90px; 
+        border-bottom: 1px solid #7C7C7C;
+        border-top: 1px solid #000000;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        display: flex;   
+    }
+
+
+    #buttonContainer{
+        width: 113px; 
+        height: 40px; 
+        margin-top: 24px; 
+        margin-left: 906px;
+        display: inline-block; 
+    }
+
+    #buttonLeft{
+        margin-right: 12px;
+    }
+
+    #titleContainer{
+        width: 206px; 
+        height: 34px; 
+        margin-top: 27px; 
+        margin-bottom: 29px; 
+        margin-left: 8px; 
+        font-size:30px; 
+        display:inline-flex; 
+    }
+
+    #iconContainer{
+        width: 55px; 
+        height: 44px; 
+        margin-left: 77px; 
+        margin-top: 22px; 
+        margin-bottom: 24px; 
+    }
+
+    #iconContainerImg{
+        object-fit: contain; 
+        width: 55px;
+        height: 44px; 
+    }
+
+
+    #middle{
+        height: 848px; 
+        border-left: 1px solid #000000;
+        border-right:1px solid #000000;
+        display: inline-flex; 
+    }
+
+    #left{
+        width: 301px; 
+        height: 844px; 
+    }
+
+    #right{
+        width: 1140px; 
+        height: 848px; 
+        background-color: rgba(205, 205, 205, 0.6);
+    }
+
+    #area{
+        width:1043px; 
+        height: 601px; 
+        margin-left: 47px; 
+        margin-right: 50px; 
+        margin-top: 88px; 
+        margin-bottom: 64px;
+
+    }
+
+    #table{
+        width:1043px; 
+        height:610px; 
+        margin-top: 23px; 
+        background-color: white; 
+
+    }
+
+    #row{
+        width: 1041px; 
+        height: 53.5px; 
+        border-bottom: 1px solid #989898;
+        display: inline-flex; 
+
+    }
+
+    .tableCell{
+        width: 330px; 
+        height:35px; 
+        margin-top: 18.5px; 
+        font-size: 25px; 
+        display: inline-flex;
+        border-bottom: 1px solid #989898;
+
+    }
+
+    .cell{
+        width: 334px; 
+        height: 35px; 
+        margin-top: 20px; 
+        margin-right: 10px; 
+        align-items: center;  
+    }
+
+    #cRow{
+        width: 1041px; 
+        height: 58px; 
+        display: inline-flex; 
+        border-bottom: 1px solid #989898;
+    }
+
+    #cellLItem{
+        margin-left: 36px; 
+    }
+
+    #leftItem{
+        margin-left: 33px; 
+        margin-right: 7px; 
+        margin-bottom: 18.5px;
+
+    }
+
+    #middleItem{
+        margin-right: 7px; 
+        margin-bottom: 18.5px;
+        
+    }
+
+    #lastItem{
+        margin-bottom: 18.5px;
+    }
+
+    #cellRow{
+        display: inline-flex; 
+        width: 1041px; 
+        height: 58px; 
+
+    }
+
+    #lImg{
+        width: 301px; 
+        height: 844px; 
+        object-fit: contain; 
+    }
+
+    #search{
+        width: 707px; 
+        height: 60px; 
+        border: 1px solid #7C7C7C; 
+        border-radius: 30px; 
+        background-color: white; 
+        display: inline-flex; 
+        align-items: center; 
+        font-size:30px; 
+        color:#989898;
+
+    }
+
+    .fa-search{
+        width: 20px; 
+        height: 20px; 
+        color:  #7C7C7C;
+        margin-left: 33px;
+        font-size: 20px;
+        margin-right: 15px; 
+        margin-bottom: 10px;
+    }
+
+
+
+
+    #footer{
+        height: 90px; 
+        border-top: 1px solid #7C7C7C;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-bottom:1px solid #000000;
+    }
+
+    #imageContainer{
+        width: 55px; 
+        height: 44px; 
+    }
+
+    #copyrightContainer{
+        font-size: 20px; 
+        margin-top: 34px; 
+        margin-bottom: 33px; 
+        margin-left: 619px; 
+        margin-right: 619px; 
+    }
+  
+
+</style>
+</head>
+<body>
+    <div id="navigation" class="container">
+        <div id="iconContainer">
+            <img src="img/mybind3r_logo.png" id="iconContainerImg" />
+        </div>
+        <div id="titleContainer">
+            MyBind3r
+        </div>
+        <div id="buttonContainer">
+            <button class="button">Log Out</button>
+        </div>
+    </div>
+    <div id="middle" class="container">
+        <div id="left">
+            <img src="img/left.png" id="lImg"/>
+        </div>
+        <div id="right">
+            <div id="area">
+                <div id="search">
+                    <span>
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <span>
+                        Search scripts...
+                    </span>
+                </div>
+                <div id="table">
+                    <div id="row">
+                        <div id="leftItem" class="tableCell"> 
+                            Title
+                        </div>
+                        <div id="middleItem" class="tableCell">  
+                            Owner
+                        </div>
+                        <div id="lastItem" class="tableCell">
+                            Last Modified
+                        </div>
+                    </div>
+                    <div id="cRow">
+                        <div id="cellLItem" class="cell">
+                            Much Ado About Nothing
+                        </div>
+                        <div id="cellItems" class="cell">
+                            Example User
+                        </div>
+                        <div id="cellItems" class="cell">
+                            Yesterday
+                        </div>
+                    </div>
+                    <div id="cRow">
+                        <div id="cellLItem" class="cell">
+                            Romeo and Juliet
+                        </div>
+                        <div id="cellItems" class="cell">
+                            Example User
+                        </div>
+                        <div id="cellItems" class="cell">
+                           2 Months Ago 
+                        </div>
+                    </div>
+                    <div id="cRow">
+                        <div id="cellLItem" class="cell">
+                            Hamlet
+                        </div>
+                        <div id="cellItems" class="cell">
+                            Master User
+                        </div>
+                        <div id="cellItems" class="cell">
+                            A Year Ago
+                        </div>
+                    </div>
+                    <div id="cRow">
+                        <div id="cellLItem" class="cell">
+                            A Raisin in the Sun
+                        </div>
+                        <div id="cellItems" class="cell">
+                            Example User
+                        </div>
+                        <div id="cellItems" class="cell">
+                            2018
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="container">
+        <div id="copyrightContainer">
+            &copy; Unicorns, LLC
+        </div>
+    </div>
+</body>
+</html>
