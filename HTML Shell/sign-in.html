@@ -3,13 +3,12 @@
 <head>
     <link rel="icon" type="image/png" href="img/mybind3r_logo.png">
 <style>
-
     html{
         font-family: "Roboto"; 
     }
 
     .container{
-        max-width: 1440px; 
+        width: 1440px; 
     }
 
     .button{
@@ -43,7 +42,7 @@
         height: 40px; 
         margin-top: 24px; 
         margin-left: 777px;
-        display: inline-block; 
+        display: "inline-block"; 
     }
 
     #buttonLeft{
@@ -75,45 +74,78 @@
     }
 
 
+
+    #navigation{
+        height: 90px; 
+    }
+
+    #footer{
+        height: 90px; 
+    }
+
     #middle{
-        height: 844px; 
-        border-left: 1px solid #000000;
-        border-right:1px solid #000000;
+        height:844px;  
         display: inline-flex; 
+        border-left: 1px solid black; 
+        border-right: 1px solid black; 
     }
 
-    #middleLeftText{
-        margin-left: 122px; 
-        margin-right: 193px; 
-        margin-top: 180px; 
-        margin-bottom: 338px;
-        width: 527px; 
-        height: 326px; 
+    #middleLeft{
+        width: 533px; 
+        height: 574px; 
+        margin-right: 145px; 
+        margin-left: 139px; 
+        margin-bottom: 189px;
+        margin-top: 81px;  
     }
 
-    #textTop{
-        width:478px; 
-        height: 135px; 
-        font-size:48px; 
+    #leftMsg{
+        margin-left: 125px; 
+        font-size: 38px;
+        width: 283px; 
+        height: 109px; 
+        display:flex;
+        justify-content: center; 
+        align-items: center; 
+        margin-bottom: 66px; 
     }
 
-    #textBottom{
-        width: 527px; 
-        height: 168px; 
-        font-size: 36px; 
-        color: #9D9D9D; 
+
+    input[type=text]{
+        width: 515px; 
+        height: 81px; 
+        margin-bottom: 45px;
+        padding-left: 15.01px; 
+        font-size: 25px; 
+        color: #8F8F8F;
+        border: 1px solid #989898;
+        background: white; 
+        border-radius: 10px; 
+    }
+
+    #formButton{
+        margin-top: 85px; 
+        margin-left: 144px; 
+        width: 206px; 
+        height: 62px; 
+        border-radius: 20px; 
+        color: white; 
+        background:  #4DA6FF; 
+        font-size: 20px;
+        border: none;  
+
     }
 
     #middleRight{
-        width: 844px; 
+        width: 639px; 
         height: 844px; 
     }
 
-    #middleRightImage{
-        width: 599px; 
+    #rightImg{
+        width: 624px; 
         height: 844px; 
         object-fit: fill; 
-
+        opacity: 0.75;
     }
 
     #footer{
@@ -124,11 +156,6 @@
         border-bottom:1px solid #000000;
     }
 
-    #imageContainer{
-        width: 55px; 
-        height: 44px; 
-    }
-
     #copyrightContainer{
         font-size: 20px; 
         margin-top: 34px; 
@@ -136,7 +163,8 @@
         margin-left: 619px; 
         margin-right: 619px; 
     }
-  
+
+ 
 
 </style>
 </head>
@@ -154,12 +182,14 @@
         </div>
     </div>
     <div id="middle" class="container">
-        <div id="middleLeftText">
-            <div id="textTop">Your all-in-one script notation system. </div>
-            <div id="textBottom">Tag, annotate, and collaborate on all your scripting needs with MyBind3r. The newest startup from Columbia University.</div>
+        <div id="middleLeft">
+            <div id="leftMsg">Welcome Back!</div>
+            <input type="text" value="Email">
+            <input type="text" value="Password">
+            <button id="formButton">Log In</button>
         </div>
         <div id="middleRight">
-            <img src="img/otherHalf.png" id="middleRightImage"/>
+            <img src="img/otherHalf.png" id="rightImg"/>
         </div>
     </div>
     <div id="footer" class="container">
@@ -167,5 +197,6 @@
             &copy; Unicorns, LLC
         </div>
     </div>
+    
 </body>
 </html>
