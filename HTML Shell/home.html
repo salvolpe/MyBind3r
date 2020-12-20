@@ -1,171 +1,174 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="icon" type="image/png" href="img/mybind3r_logo.png">
-<style>
+  <head>
+    <link rel="icon" type="image/png" href="img/mybind3r_logo.png" />
+    <style>
+      html {
+        font-family: "Roboto";
+      }
 
-    html{
-        font-family: "Roboto"; 
-    }
+      .container {
+        max-width: 1440px;
+      }
 
-    .container{
-        max-width: 1440px; 
-    }
-
-    .button{
-        background-color: white; 
-        text-align: 'center';
-        text-decoration: none; 
+      .button {
+        background-color: white;
+        text-align: "center";
+        text-decoration: none;
         border: 1px solid #000000;
-        font-size: 20px; 
-        width: 113px; 
-        height: 40px; 
+        font-size: 20px;
+        width: 113px;
+        height: 40px;
+      }
 
-    }
+      .button:hover {
+        text-decoration: underline;
+      }
 
-    .button:hover{
-        text-decoration: underline; 
-    }
-
-
-    #navigation{
-        height: 90px; 
-        border-bottom: 1px solid #7C7C7C;
+      #navigation {
+        height: 90px;
+        border-bottom: 1px solid #7c7c7c;
         border-top: 1px solid #000000;
         border-left: 1px solid #000000;
         border-right: 1px solid #000000;
-        display: flex;   
-    }
+        display: flex;
+      }
 
-
-    #buttonContainer{
-        width: 242px; 
-        height: 40px; 
-        margin-top: 24px; 
+      #buttonContainer {
+        width: 242px;
+        height: 40px;
+        margin-top: 24px;
         margin-left: 777px;
-        display: inline-block; 
-    }
+        display: inline-block;
+      }
 
-    #buttonLeft{
+      #buttonLeft {
         margin-right: 12px;
-    }
+      }
 
-    #titleContainer{
-        width: 206px; 
-        height: 34px; 
-        margin-top: 27px; 
-        margin-bottom: 29px; 
-        margin-left: 8px; 
-        font-size:30px; 
-        display:inline-flex; 
-    }
+      #titleContainer {
+        width: 206px;
+        height: 34px;
+        margin-top: 27px;
+        margin-bottom: 29px;
+        margin-left: 8px;
+        font-size: 30px;
+        display: inline-flex;
+      }
 
-    #iconContainer{
-        width: 55px; 
-        height: 44px; 
-        margin-left: 77px; 
-        margin-top: 22px; 
-        margin-bottom: 24px; 
-    }
-
-    #iconContainerImg{
-        object-fit: contain; 
+      #iconContainer {
         width: 55px;
-        height: 44px; 
-    }
+        height: 44px;
+        margin-left: 77px;
+        margin-top: 22px;
+        margin-bottom: 24px;
+      }
 
+      #iconContainerImg {
+        object-fit: contain;
+        width: 55px;
+        height: 44px;
+      }
 
-    #middle{
-        height: 844px; 
-        border-left: 1px solid #000000;
-        border-right:1px solid #000000;
-        display: inline-flex; 
-    }
-
-    #middleLeftText{
-        margin-left: 122px; 
-        margin-right: 193px; 
-        margin-top: 180px; 
-        margin-bottom: 338px;
-        width: 527px; 
-        height: 326px; 
-    }
-
-    #textTop{
-        width:478px; 
-        height: 135px; 
-        font-size:48px; 
-    }
-
-    #textBottom{
-        width: 527px; 
-        height: 168px; 
-        font-size: 36px; 
-        color: #9D9D9D; 
-    }
-
-    #middleRight{
-        width: 844px; 
-        height: 844px; 
-    }
-
-    #middleRightImage{
-        width: 599px; 
-        height: 844px; 
-        object-fit: fill; 
-
-    }
-
-    #footer{
-        height: 90px; 
-        border-top: 1px solid #7C7C7C;
+      #middle {
+        height: 844px;
         border-left: 1px solid #000000;
         border-right: 1px solid #000000;
-        border-bottom:1px solid #000000;
-    }
+        display: inline-flex;
+      }
 
-    #imageContainer{
-        width: 55px; 
-        height: 44px; 
-    }
+      #middleLeftText {
+        margin-left: 122px;
+        margin-right: 193px;
+        margin-top: 180px;
+        margin-bottom: 338px;
+        width: 527px;
+        height: 326px;
+      }
 
-    #copyrightContainer{
-        font-size: 20px; 
-        margin-top: 34px; 
-        margin-bottom: 33px; 
-        margin-left: 619px; 
-        margin-right: 619px; 
-    }
-  
+      #textTop {
+        width: 478px;
+        height: 135px;
+        font-size: 48px;
+      }
 
-</style>
-</head>
-<body>
+      #textBottom {
+        width: 527px;
+        height: 168px;
+        font-size: 36px;
+        color: #9d9d9d;
+      }
+
+      #middleRight {
+        width: 844px;
+        height: 844px;
+      }
+
+      #middleRightImage {
+        width: 599px;
+        height: 844px;
+        object-fit: fill;
+      }
+
+      #footer {
+        height: 90px;
+        border-top: 1px solid #7c7c7c;
+        border-left: 1px solid #000000;
+        border-right: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+      }
+
+      #imageContainer {
+        width: 55px;
+        height: 44px;
+      }
+
+      #copyrightContainer {
+        font-size: 20px;
+        margin-top: 34px;
+        margin-bottom: 33px;
+        margin-left: 619px;
+        margin-right: 619px;
+      }
+    </style>
+  </head>
+  <body>
     <div id="navigation" class="container">
-        <div id="iconContainer">
-            <img src="img/mybind3r_logo.png" id="iconContainerImg" />
-        </div>
-        <div id="titleContainer">
-            MyBind3r
-        </div>
-        <div id="buttonContainer">
-            <button id="buttonLeft" class="button">Sign In</button>
-            <button class="button">Sign Up</button>
-        </div>
+      <div id="iconContainer">
+        <img src="img/mybind3r_logo.png" id="iconContainerImg" />
+      </div>
+      <div id="titleContainer">MyBind3r</div>
+      <div id="buttonContainer">
+        <button
+          id="buttonLeft"
+          class="button"
+          onclick="document.location='sign-in.html'"
+        >
+          Sign In
+        </button>
+        <button class="button" onclick="document.location='sign-up.html'">
+          Sign Up
+        </button>
+      </div>
     </div>
     <div id="middle" class="container">
-        <div id="middleLeftText">
-            <div id="textTop">Your all-in-one script notation system. </div>
-            <div id="textBottom">Tag, annotate, and collaborate on all your scripting needs with MyBind3r. The newest startup from Columbia University.</div>
+      <div id="middleLeftText">
+        <div id="textTop">Your all-in-one script notation system.</div>
+        <div id="textBottom">
+          Tag, annotate, and collaborate on all your scripting needs with
+          MyBind3r. The newest startup from Columbia University.
         </div>
-        <div id="middleRight">
-            <img src="img/otherHalf.png" id="middleRightImage"/>
-        </div>
+      </div>
+      <div id="middleRight">
+        <img
+          src="img/otherHalf.png"
+          id="middleRightImage"
+          alt="A desk with crumbled paper, a spiral notebook, pen, laptop, and a film slate"
+        />
+      </div>
     </div>
     <div id="footer" class="container">
-        <div id="copyrightContainer">
-            &copy; Unicorns, LLC
-        </div>
+      <div id="copyrightContainer">&copy; Unicorns, LLC</div>
     </div>
-</body>
+  </body>
 </html>

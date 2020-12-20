@@ -1,202 +1,201 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="icon" type="image/png" href="img/mybind3r_logo.png">
-<style>
-    html{
-        font-family: "Roboto"; 
-    }
+  <head>
+    <link rel="icon" type="image/png" href="img/mybind3r_logo.png" />
+    <style>
+      html {
+        font-family: "Roboto";
+      }
 
-    .container{
-        width: 1440px; 
-    }
+      .container {
+        width: 1440px;
+      }
 
-    .button{
-        background-color: white; 
-        text-align: 'center';
-        text-decoration: none; 
+      .button {
+        background-color: white;
+        text-align: "center";
+        text-decoration: none;
         border: 1px solid #000000;
-        font-size: 20px; 
-        width: 113px; 
-        height: 40px; 
+        font-size: 20px;
+        width: 113px;
+        height: 40px;
+      }
 
-    }
+      .button:hover {
+        text-decoration: underline;
+      }
 
-    .button:hover{
-        text-decoration: underline; 
-    }
-
-
-    #navigation{
-        height: 90px; 
-        border-bottom: 1px solid #7C7C7C;
+      #navigation {
+        height: 90px;
+        border-bottom: 1px solid #7c7c7c;
         border-top: 1px solid #000000;
         border-left: 1px solid #000000;
         border-right: 1px solid #000000;
-        display: flex;   
-    }
+        display: flex;
+      }
 
-
-    #buttonContainer{
-        width: 242px; 
-        height: 40px; 
-        margin-top: 24px; 
+      #buttonContainer {
+        width: 242px;
+        height: 40px;
+        margin-top: 24px;
         margin-left: 777px;
-        display: "inline-block"; 
-    }
+        display: "inline-block";
+      }
 
-    #buttonLeft{
+      #buttonLeft {
         margin-right: 12px;
-    }
+      }
 
-    #titleContainer{
-        width: 206px; 
-        height: 34px; 
-        margin-top: 27px; 
-        margin-bottom: 29px; 
-        margin-left: 8px; 
-        font-size:30px; 
-        display:inline-flex; 
-    }
+      #titleContainer {
+        width: 206px;
+        height: 34px;
+        margin-top: 27px;
+        margin-bottom: 29px;
+        margin-left: 8px;
+        font-size: 30px;
+        display: inline-flex;
+      }
 
-    #iconContainer{
-        width: 55px; 
-        height: 44px; 
-        margin-left: 77px; 
-        margin-top: 22px; 
-        margin-bottom: 24px; 
-    }
-
-    #iconContainerImg{
-        object-fit: contain; 
+      #iconContainer {
         width: 55px;
-        height: 44px; 
-    }
+        height: 44px;
+        margin-left: 77px;
+        margin-top: 22px;
+        margin-bottom: 24px;
+      }
 
+      #iconContainerImg {
+        object-fit: contain;
+        width: 55px;
+        height: 44px;
+      }
 
+      #navigation {
+        height: 90px;
+      }
 
-    #navigation{
-        height: 90px; 
-    }
+      #footer {
+        height: 90px;
+      }
 
-    #footer{
-        height: 90px; 
-    }
+      #middle {
+        height: 844px;
+        display: inline-flex;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
 
-    #middle{
-        height:844px;  
-        display: inline-flex; 
-        border-left: 1px solid black; 
-        border-right: 1px solid black; 
-    }
-
-    #middleLeft{
-        width: 533px; 
-        height: 574px; 
-        margin-right: 145px; 
-        margin-left: 139px; 
+      #middleLeft {
+        width: 533px;
+        height: 574px;
+        margin-right: 145px;
+        margin-left: 139px;
         margin-bottom: 189px;
-        margin-top: 81px;  
-    }
+        margin-top: 81px;
+      }
 
-    #leftMsg{
-        margin-left: 125px; 
+      #leftMsg {
+        margin-left: 125px;
         font-size: 38px;
-        width: 283px; 
-        height: 109px; 
-        display:flex;
-        justify-content: center; 
-        align-items: center; 
-        margin-bottom: 66px; 
-    }
+        width: 283px;
+        height: 109px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 66px;
+      }
 
-
-    input[type=text]{
-        width: 515px; 
-        height: 81px; 
+      input[type="text"] {
+        width: 515px;
+        height: 81px;
         margin-bottom: 45px;
-        padding-left: 15.01px; 
-        font-size: 25px; 
-        color: #8F8F8F;
+        padding-left: 15.01px;
+        font-size: 25px;
+        color: #8f8f8f;
         border: 1px solid #989898;
-        background: white; 
-        border-radius: 10px; 
-    }
+        background: white;
+        border-radius: 10px;
+      }
 
-    #formButton{
-        margin-top: 85px; 
-        margin-left: 144px; 
-        width: 206px; 
-        height: 62px; 
-        border-radius: 20px; 
-        color: white; 
-        background:  #4DA6FF; 
+      #formButton {
+        margin-top: 85px;
+        margin-left: 144px;
+        width: 206px;
+        height: 62px;
+        border-radius: 20px;
+        color: white;
+        background: #4da6ff;
         font-size: 20px;
-        border: none;  
+        border: none;
+      }
 
-    }
+      #middleRight {
+        width: 639px;
+        height: 844px;
+      }
 
-    #middleRight{
-        width: 639px; 
-        height: 844px; 
-    }
-
-    #rightImg{
-        width: 624px; 
-        height: 844px; 
-        object-fit: fill; 
+      #rightImg {
+        width: 624px;
+        height: 844px;
+        object-fit: fill;
         opacity: 0.75;
-    }
+      }
 
-    #footer{
-        height: 90px; 
-        border-top: 1px solid #7C7C7C;
+      #footer {
+        height: 90px;
+        border-top: 1px solid #7c7c7c;
         border-left: 1px solid #000000;
         border-right: 1px solid #000000;
-        border-bottom:1px solid #000000;
-    }
+        border-bottom: 1px solid #000000;
+      }
 
-    #copyrightContainer{
-        font-size: 20px; 
-        margin-top: 34px; 
-        margin-bottom: 33px; 
-        margin-left: 619px; 
-        margin-right: 619px; 
-    }
-
- 
-
-</style>
-</head>
-<body>
+      #copyrightContainer {
+        font-size: 20px;
+        margin-top: 34px;
+        margin-bottom: 33px;
+        margin-left: 619px;
+        margin-right: 619px;
+      }
+    </style>
+  </head>
+  <body>
     <div id="navigation" class="container">
-        <div id="iconContainer">
-            <img src="img/mybind3r_logo.png" id="iconContainerImg" />
-        </div>
-        <div id="titleContainer">
-            MyBind3r
-        </div>
-        <div id="buttonContainer">
-            <button id="buttonLeft" class="button">Sign In</button>
-            <button class="button">Sign Up</button>
-        </div>
+      <div id="iconContainer">
+        <img src="img/mybind3r_logo.png" id="iconContainerImg" />
+      </div>
+      <div id="titleContainer">MyBind3r</div>
+      <div id="buttonContainer">
+        <button
+          id="buttonLeft"
+          class="button"
+          onclick="document.location='sign-in.html'"
+        >
+          Sign In
+        </button>
+        <button class="button" onclick="document.location='sign-up.html'">
+          Sign Up
+        </button>
+      </div>
     </div>
     <div id="middle" class="container">
-        <div id="middleLeft">
-            <div id="leftMsg">Welcome Back!</div>
-            <input type="text" value="Email">
-            <input type="text" value="Password">
-            <button id="formButton">Log In</button>
-        </div>
-        <div id="middleRight">
-            <img src="img/otherHalf.png" id="rightImg"/>
-        </div>
+      <div id="middleLeft">
+        <div id="leftMsg">Welcome Back!</div>
+        <input type="text" value="Email" />
+        <input type="text" value="Password" />
+        <button id="formButton" onclick="document.location='./account.html'">
+          Log In
+        </button>
+      </div>
+      <div id="middleRight">
+        <img
+          src="img/otherHalf.png"
+          id="rightImg"
+          alt="A desk with crumbled paper, a spiral notebook, pen, laptop, and a film slate"
+        />
+      </div>
     </div>
     <div id="footer" class="container">
-        <div id="copyrightContainer">
-            &copy; Unicorns, LLC
-        </div>
+      <div id="copyrightContainer">&copy; Unicorns, LLC</div>
     </div>
-    
-</body>
+  </body>
 </html>

@@ -109,6 +109,10 @@ div.header {
   display: flex;
   align-items: center;
 }
+.fileButton {
+  text-decoration: none;
+  color: #000000;
+}
 .divider-box {
   width: 10px;
   height: 36.01px;
