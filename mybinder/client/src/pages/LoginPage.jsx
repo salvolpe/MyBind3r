@@ -50,9 +50,9 @@ const LoginPage = () => {
           </Button>
         </Grid>
         <div className={classes.buttons}>
-          <Link className={classes.buttonLink} to={"/login"}>
+          <Link className={classes.buttonLink} to={"/login"} disableRipple>
             <Button variant="outlined" className={classes.leftButton}>
-              Sign In
+              Log In
             </Button>
           </Link>
           <Link className={classes.buttonLink} to={"/sign-up"}>
@@ -230,6 +230,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
     border: "none",
     marginLeft: -10,
+    '&:hover': {
+      textDecoration: 'none',
+      backgroundColor: "#4DA6FF"
+    }
   },
 }));
 
