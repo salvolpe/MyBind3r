@@ -59,7 +59,7 @@ export default function ViewToolbar() {
           <IconDropdown
             options={{
               aria: "Page View",
-              items: ["Script-Only", "Full Bind3r", "Multi-Page"],
+              items: ["Script-Only", "Full Bind3r"],
               icon: (
                 <div>
                   <Icon className="fas fa-book-open" />

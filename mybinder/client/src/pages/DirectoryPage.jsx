@@ -71,7 +71,7 @@ const DirectoryPage = () => {
           }}
           variant="outlined"
         >
-          Sign Out
+          Log Out
         </Button>
         <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
           <Alert onClose={handleClose} severity={severity}>
@@ -130,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   buttons: {
-    paddingTop: 9,
+    marginTop:9,
     width: 113,
     textAlign: "center",
   },
@@ -153,8 +153,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     width: "80%",
-    height: "100%",
-    flexDirection: "column",
+    height: "844px",
+    flexDirection: "column"
   },
 
   bottomGrid: {
