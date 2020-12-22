@@ -231,10 +231,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 20,
     border: "none",
     marginLeft: -10,
-    '&:hover': {
-      textDecoration: 'none',
-      backgroundColor: "#4DA6FF"
-    }
+    "&:hover": {
+      textDecoration: "none",
+      backgroundColor: "#4DA6FF",
+    },
   },
 }));
 
