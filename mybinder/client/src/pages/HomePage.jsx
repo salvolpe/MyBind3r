@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className={classes.buttons}>
           <Link className={classes.buttonLink} to={"/login"}>
             <Button variant="outlined" className={classes.leftButton}>
-              Sign In
+              Log In
             </Button>
           </Link>
           <Link className={classes.buttonLink} to={"/sign-up"}>

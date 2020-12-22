@@ -54,7 +54,7 @@ const SignUpPage = () => {
         <div className={classes.buttons}>
           <Link className={classes.buttonLink} to={"/login"}>
             <Button variant="outlined" className={classes.leftButton}>
-              Sign In
+              Log In
             </Button>
           </Link>
           <Link className={classes.buttonLink} to={"/sign-up"}>
@@ -105,6 +105,7 @@ const SignUpPage = () => {
                 required
                 id="password"
                 label="Password"
+                type="password"
                 variant="outlined"
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -115,6 +116,7 @@ const SignUpPage = () => {
                 required
                 id="repeat-password"
                 label="Re-enter password"
+                type="password"
                 variant="outlined"
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
@@ -243,6 +245,10 @@ const useStyles = makeStyles((theme) => ({
     width: 206,
     height: 62,
     border: "none",
+    '&:hover': {
+      textDecoration: 'none',
+      backgroundColor: "#4DA6FF"
+    }
   },
 
   createMessage: {
