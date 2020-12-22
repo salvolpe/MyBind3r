@@ -7,6 +7,11 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import IconDropdown from "../IconDropdown";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,7 +74,21 @@ export default function InsertToolbar() {
           <IconDropdown
             options={{
               aria: "object",
-              items: ["+ New Object"],
+              items: [ <List id="row1" aria-label="row-of-objects">
+                            <Button><Icon className="fas fa-chair" /></Button>
+                            <Button><Icon className="fas fa-user-tie" /></Button>
+                            <Button><Icon className="fas fa-bed" /></Button>
+                        </List>,
+                      <List id="row2" aria-label="row-of-objects">
+                            <Button><Icon className="fas fa-home" /></Button>
+                            <Button><Icon className="fas fa-cube" /></Button>
+                            <Button><Icon className="fas fa-tablet" /></Button>
+                      </List>,
+                      <List id="row3" aria-label="row-of-objects">
+                          <Button><Icon className="fas fa-drum" /></Button>
+                            <Button><Icon className="fas fa-wine-glass" /></Button>
+                            <Button><Icon className="fas fa-plus" /></Button>
+                    </List>],
               icon: (
                 <div>
                   <Icon className="fas fa-toolbox" />

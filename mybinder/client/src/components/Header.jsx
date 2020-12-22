@@ -142,6 +142,7 @@ export default function Header() {
               <AntTab label="View" {...openTabs(3)} />
               <AntTab label="Help" {...openTabs(4)} />
             </AntTabs>
+            {/* <button onclick="TogetherJS(this); return false;">Start TogetherJS</button> */}
           </Toolbar>
           <TabPanel value={value} index={0}>
             <HomeToolbar />
