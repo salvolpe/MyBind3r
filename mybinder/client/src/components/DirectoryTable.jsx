@@ -32,23 +32,23 @@ export default function DirectoryTable() {
 
   return (
     <MaterialTable
-      title="My Scripts"
+      title="My Binders"
       columns={columns}
       data={data}
-      onRowClick={() => {
-        history.push(`/${user}/bind3r/${data.title}`);
+      onRowClick={(event, rowData) => {
+        history.push(`/${user}/bind3r/${rowData.title}`);
       }}
       actions={[
         {
           icon: "edit",
-          tooltip: "Edit Script",
-          onClick: () => {
+          tooltip: "Edit Binder",
+          onClick: (event, rowData) => {
             history.push(`/${user}/bind3r/${data.title}`);
           },
         },
         {
           icon: "delete",
-          tooltip: "Delete Script",
+          tooltip: "Delete Binder",
           onClick: () => {
             alert("Don't delete me!");
           },
@@ -56,7 +56,7 @@ export default function DirectoryTable() {
       ]}
       localization={{
         pagination: {
-          labelRowsSelect: "scripts per page",
+          labelRowsSelect: "binders per page",
         },
       }}
     />
