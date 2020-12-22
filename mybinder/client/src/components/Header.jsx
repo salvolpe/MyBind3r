@@ -7,13 +7,10 @@ import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 import Box from "@material-ui/core/Box";
 import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { useHistory, useParams } from "react-router-dom";
 
+import FileToolbar from "./toolbar/FileToolbar";
 import HomeToolbar from "./toolbar/HomeToolbar";
 import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
@@ -83,8 +80,6 @@ function openTabs(index) {
 
 export default function Header() {
   const classes = useStyles();
-  const history = useHistory();
-  const { user } = useParams();
   const [value, setValue] = useState(0);
   const [state, setState] = useState({
     file: false,
@@ -92,12 +87,6 @@ export default function Header() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const handleFileItemClick = (value) => {
-    if (value === "Back to Scripts") {
-      history.push(`/${user}/directory`);
-    }
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -115,28 +104,8 @@ export default function Header() {
     <div
       className={classes.drawer}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {[
-          "Back to Scripts",
-          "New Script",
-          "Save",
-          "Import",
-          "Export",
-          "Print",
-        ].map((text, index) => (
-          <ListItem
-            id={text}
-            button
-            onClick={() => handleFileItemClick(text)}
-            key={text}
-          >
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <FileToolbar />
     </div>
   );
 
@@ -236,5 +205,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     height: 50,
     borderBottom: "1px solid black",
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
 }));

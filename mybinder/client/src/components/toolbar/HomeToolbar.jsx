@@ -87,24 +87,32 @@ export default function HomeToolbar() {
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
-
-        <Tooltip title="copy-options">
-          <IconDropdown
-            options={{
-              aria: "copy-options",
-              items: [
-                <Icon className="fas fa-copy" aria-label="copy" />,
-                <Icon className="fas fa-cut" aria-label="cut" />,
-                <Icon className="fas fa-paste" aria-label="paste" />,
-              ],
-              icon: (
-                <div>
-                  <Icon className="fas fa-clipboard" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
+        <Tooltip title="copy">
+          <IconButton
+            className={classes.buttons}
+            color="inherit"
+            aria-label="copy"
+          >
+            <Icon className="fas fa-copy" aria-label="copy"/>
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="cut">
+          <IconButton
+            className={classes.buttons}
+            color="inherit"
+            aria-label="cut"
+          >
+            <Icon className="fas fa-cut" aria-label="cut"/>
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="paste">
+          <IconButton
+            className={classes.buttons}
+            color="inherit"
+            aria-label="paste"
+          >
+            <Icon className="fas fa-paste" aria-label="paste"/>
+          </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
         <div className={classes.fontselection}>
