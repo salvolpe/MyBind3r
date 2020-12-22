@@ -11,7 +11,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
 import DirectoryTable from "../components/DirectoryTable";
-import panel from "../assets/side_panel.png"
+import panel from "../assets/side_panel.png";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -48,7 +48,8 @@ const DirectoryPage = () => {
             </Typography>
           </Button>
         </Grid>
-        <Button className={classes.buttons}
+        <Button
+          className={classes.buttons}
           onClick={async () => {
             await fetch("/auth/logout", {
               method: "POST",
@@ -80,7 +81,7 @@ const DirectoryPage = () => {
       </Grid>
       <Grid className={classes.middleGrid}>
         <div className={classes.middleGridLeftContainer}>
-        <img src={panel} max-width="100%" height="auto" />
+          <img src={panel} max-width="100%" height="auto" />
         </div>
         <div className={classes.middleGridRightContainer}>
           <div className={classes.middleGridAround}></div>
@@ -89,10 +90,10 @@ const DirectoryPage = () => {
         </div>
       </Grid>
       <div>
-      <div className={classes.bottomGrid}>
-      <Typography>&copy; Unicorns, LLC</Typography>
+        <div className={classes.bottomGrid}>
+          <Typography>&copy; Unicorns, LLC</Typography>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
@@ -125,32 +126,31 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     paddingTop: 10,
-    textTransform: "none"
+    textTransform: "none",
   },
 
   buttons: {
     marginTop:9,
     width: 113,
-    textAlign: "center"
-  }, 
+    textAlign: "center",
+  },
 
   middleGrid: {
-      display: "flex",
+    display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-  },   
-  
-  middleGridLeftContainer: {
-    display: "flex", 
-    justifyContent: "center",
-    alignItems: "center"
+  },
 
-  }, 
+  middleGridLeftContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
   middleGridRightContainer: {
-    display: "flex", 
+    display: "flex",
     backgroundColor: " rgba(205, 205, 205, 0.6)",
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
     width: "80%",
     height: "844px",
@@ -165,11 +165,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
 
-  middleGridAround: { 
+  middleGridAround: {
     backgroundColor: "rgba(205, 205, 205, 0.6)",
-    height: 190
-  }
-
+    height: 190,
+  },
 }));
 
 export default DirectoryPage;

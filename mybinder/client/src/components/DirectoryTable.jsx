@@ -48,6 +48,9 @@ export default function DirectoryTable() {
       title="My Scripts"
       columns={columns}
       data={data}
+      onRowClick={() => {
+        history.push(`/${user}/bind3r/${data.title}`);
+      }}
       actions={[
         {
           icon: "edit",

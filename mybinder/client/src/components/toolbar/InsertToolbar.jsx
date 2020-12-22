@@ -10,10 +10,8 @@ import IconDropdown from "../IconDropdown";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height:60,
+    height: 60,
     width: "fit-content",
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),
@@ -26,6 +24,12 @@ const useStyles = makeStyles((theme) => ({
   },
   dropdown: {
     margin: theme.spacing(-0.5),
+  },
+  iconbutton: {
+    fontSize: 20,
+    display: "flex",
+    justifyContent: "space-between",
+    alightItems: "center",
   },
 }));
 
@@ -49,8 +53,8 @@ export default function InsertToolbar() {
                 "+ New Actor",
               ],
               icon: (
-                <div>
-                  <Icon className="fas fa-user" />
+                <div className={classes.iconbutton}>
+                  <Icon className="fas fa-user" fontSize="inherit" />
                   &nbsp;Actor&nbsp;
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
