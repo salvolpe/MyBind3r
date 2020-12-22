@@ -14,6 +14,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { useHistory, useParams } from "react-router-dom";
 
+import FileToolbar from "./toolbar/FileToolbar";
 import HomeToolbar from "./toolbar/HomeToolbar";
 import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
@@ -118,25 +119,7 @@ export default function Header() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {[
-          "Back to Scripts",
-          "New Script",
-          "Save",
-          "Import",
-          "Export",
-          "Print",
-        ].map((text, index) => (
-          <ListItem
-            id={text}
-            button
-            onClick={() => handleFileItemClick(text)}
-            key={text}
-          >
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <FileToolbar />
     </div>
   );
 
@@ -236,5 +219,8 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     height: 50,
     borderBottom: "1px solid black",
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
 }));
