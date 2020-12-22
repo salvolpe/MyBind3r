@@ -82,6 +82,7 @@ const LoginPage = () => {
                 required
                 id="password"
                 label="Password"
+                type="password"
                 variant="outlined"
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown-={async (e) => {
