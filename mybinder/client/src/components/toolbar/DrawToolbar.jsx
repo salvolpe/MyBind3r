@@ -12,8 +12,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: 60,
     width: "fit-content",
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),

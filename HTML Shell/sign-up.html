@@ -8,7 +8,7 @@
       }
 
       .container {
-        max-width: 1440px;
+        width: 1440px;
       }
 
       .button {
@@ -39,7 +39,7 @@
         height: 40px;
         margin-top: 24px;
         margin-left: 777px;
-        display: inline-block;
+        display: "inline-block";
       }
 
       #buttonLeft {
@@ -70,43 +70,75 @@
         height: 44px;
       }
 
+      #navigation {
+        height: 90px;
+      }
+
+      #footer {
+        height: 90px;
+      }
+
       #middle {
         height: 844px;
-        border-left: 1px solid #000000;
-        border-right: 1px solid #000000;
         display: inline-flex;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
       }
 
-      #middleLeftText {
-        margin-left: 122px;
-        margin-right: 193px;
-        margin-top: 180px;
-        margin-bottom: 338px;
-        width: 527px;
-        height: 326px;
+      #middleLeft {
+        margin-left: 140px;
+        width: 530px;
+        height: 750px;
+        margin-right: 131px;
+        margin-bottom: 54px;
+        margin-top: 40px;
       }
 
-      #textTop {
-        width: 478px;
-        height: 135px;
-        font-size: 48px;
+      #middleLeftTitle {
+        margin-left: 75px;
+        margin-right: 75px;
+        height: 60px;
+        width: 380px;
+        margin-bottom: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 38px;
       }
 
-      #textBottom {
-        width: 527px;
-        height: 168px;
-        font-size: 36px;
-        color: #9d9d9d;
+      input[type="text"] {
+        width: 515px;
+        height: 81px;
+        margin-bottom: 26px;
+        padding-left: 15.01px;
+        font-size: 25px;
+        color: #8f8f8f;
+        border: 1px solid #989898;
+        background: white;
+        border-radius: 10px;
+      }
+
+      #formButton {
+        width: 206px;
+        height: 62px;
+        background: #4da6ff;
+        color: white;
+        font-size: 20px;
+        border-radius: 20px;
+        border: none;
+        margin-top: 18px;
+        margin-left: 146px;
       }
 
       #middleRight {
-        width: 844px;
+        width: 639px;
         height: 844px;
       }
 
       #middleRightImage {
-        width: 599px;
+        width: 639px;
         height: 844px;
+        opacity: 0.75;
         object-fit: fill;
       }
 
@@ -116,11 +148,6 @@
         border-left: 1px solid #000000;
         border-right: 1px solid #000000;
         border-bottom: 1px solid #000000;
-      }
-
-      #imageContainer {
-        width: 55px;
-        height: 44px;
       }
 
       #copyrightContainer {
@@ -152,12 +179,16 @@
       </div>
     </div>
     <div id="middle" class="container">
-      <div id="middleLeftText">
-        <div id="textTop">Your all-in-one script notation system.</div>
-        <div id="textBottom">
-          Tag, annotate, and collaborate on all your scripting needs with
-          MyBind3r. The newest startup from Columbia University.
-        </div>
+      <div id="middleLeft">
+        <div id="middleLeftTitle">Create Your Account</div>
+        <input type="text" value="First Name" />
+        <input type="text" value="Last Name" />
+        <input type="text" value="Email" />
+        <input type="text" value="Password" />
+        <input type="text" value="Repeat Password" />
+        <button id="formButton" onclick="document.location='account.html'">
+          Register Here
+        </button>
       </div>
       <div id="middleRight">
         <img
