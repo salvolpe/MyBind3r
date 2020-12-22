@@ -105,6 +105,7 @@ const SignUpPage = () => {
                 required
                 id="password"
                 label="Password"
+                type="password"
                 variant="outlined"
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -115,6 +116,7 @@ const SignUpPage = () => {
                 required
                 id="repeat-password"
                 label="Re-enter password"
+                type="password"
                 variant="outlined"
                 onKeyDown={async (e) => {
                   if (e.key === "Enter") {
