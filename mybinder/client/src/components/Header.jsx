@@ -153,6 +153,7 @@ export default function Header() {
             <Button style={button} onClick={ComingSoon}>
                 <img src={users}/>
             </Button>
+            {/* <button onclick="TogetherJS(this); return false;">Start TogetherJS</button> */}
           </Toolbar>
           <TabPanel value={value} index={0}>
             <HomeToolbar />
