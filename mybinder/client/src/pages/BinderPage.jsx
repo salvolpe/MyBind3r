@@ -15,7 +15,8 @@ class BinderPage extends React.Component {
       super(props);
       this.state = {
         numNotes: 0,
-        page: sampleScript
+        page: sampleScript,
+        pageNumber: 1
       };
   }
 
@@ -25,10 +26,16 @@ class BinderPage extends React.Component {
 
   previousPage = () => {
     this.setState({page: sampleScript});
+    if (this.state.pageNumber - 1 <= 1) {
+      this.setState({pageNumber: 1});
+    }
   }
 
   nextPage = () => {
     this.setState({page: sampleScript2});
+    if (this.state.pageNumber + 1 >= 2) {
+      this.setState({pageNumber: 2});
+    }
   }
 
   render() {
@@ -53,7 +60,7 @@ class BinderPage extends React.Component {
     return (
 
       <Grid container justify="center" direction="column">
-        <Header />
+        <Header/>
         <Grid container justify="center" direction="row">
           <Binder page={this.state.page}/>
         </Grid>
