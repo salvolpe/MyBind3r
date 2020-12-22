@@ -8,6 +8,10 @@ import SearchIcon from "@material-ui/icons/Search";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    height: 60,
+    display: "flex",
+    justifyContent: "space-between",
+    alightItems: "center",
   },
   search: {
     position: "relative",

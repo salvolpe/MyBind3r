@@ -15,14 +15,12 @@ import FormatColorTextIcon from "@material-ui/icons/FormatColorText";
 import IconDropdown from "../IconDropdown";
 
 import FontPicker from "font-picker-react"; //From @samuelmeuli on GitHub
-
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: 60,
     width: "fit-content",
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: theme.shape.borderRadius,
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.secondary,
     padding: theme.spacing(0, 0.5),
@@ -32,10 +30,32 @@ const useStyles = makeStyles((theme) => ({
   },
   buttons: {
     padding: theme.spacing(1.5, 1),
-
   },
   dropdown: {
     margin: theme.spacing(-0.5),
+  },
+  fontpicker: {
+    boxShadow: "none",
+  },
+  fontSizePicker: {
+    display: "flex",
+    width: 45,
+    height: 33,
+    justifyContent: "space-around",
+    alignItems: "center",
+    border: "1px solid #bababa",
+    filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+  },
+  fontselection: {
+    backgroundColor: "white",
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  iconbutton: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 }));
 
@@ -73,9 +93,9 @@ export default function HomeToolbar() {
             options={{
               aria: "copy-options",
               items: [
-                <Icon className="fas fa-copy" aria-label="copy"/>,
-                <Icon className="fas fa-cut" aria-label="cut"/>,
-                <Icon className="fas fa-paste" aria-label="paste"/>,
+                <Icon className="fas fa-copy" aria-label="copy" />,
+                <Icon className="fas fa-cut" aria-label="cut" />,
+                <Icon className="fas fa-paste" aria-label="paste" />,
               ],
               icon: (
                 <div>
@@ -87,12 +107,18 @@ export default function HomeToolbar() {
           />
         </Tooltip>
         <Divider orientation="vertical" flexItem />
-        <FontPicker
-          className="apply-font"
-          apiKey={fontsAPIKey}
-          activeFontFamily={activeFontFamily}
-          onChange={(nextFont) => setActiveFontFamily(nextFont.family)}
-        />
+        <div className={classes.fontselection}>
+          <FontPicker
+            className="apply-font"
+            apiKey={fontsAPIKey}
+            activeFontFamily={activeFontFamily}
+            onChange={(nextFont) => setActiveFontFamily(nextFont.family)}
+          />
+          <div className={classes.fontSizePicker}>
+            <Typography>12</Typography>
+            <ArrowDropDownIcon className={classes.dropdown} />
+          </div>
+        </div>
         <Divider orientation="vertical" flexItem />
         <Tooltip title="bold">
           <IconButton
@@ -137,23 +163,35 @@ export default function HomeToolbar() {
             color="inherit"
             aria-label="highlight"
           >
-            <Icon className="fas fa-highlighter" />
+            <div className={classes.iconbutton}>
+              <Icon className="fas fa-highlighter" />
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </div>
           </IconButton>
         </Tooltip>
-        
+
         <Divider orientation="vertical" flexItem />
         <Tooltip title="align-otions">
           <IconDropdown
             options={{
               aria: "align-options",
               items: [
-                <Icon className="fas fa-align-left" aria-label="align-left"/>,
-                <Icon className="fas fa-align-center" aria-label="align-right"/>,
-                <Icon className="fas fa-align-right" aria-label="align-center"/>,
-                <Icon className="fas fa-align-justify" aria-label="align-justify"/>,
+                <Icon className="fas fa-align-left" aria-label="align-left" />,
+                <Icon
+                  className="fas fa-align-center"
+                  aria-label="align-right"
+                />,
+                <Icon
+                  className="fas fa-align-right"
+                  aria-label="align-center"
+                />,
+                <Icon
+                  className="fas fa-align-justify"
+                  aria-label="align-justify"
+                />,
               ],
               icon: (
-                <div>
+                <div className={classes.iconbutton}>
                   <Icon className="fas fa-align-left" />
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
@@ -171,7 +209,7 @@ export default function HomeToolbar() {
                 <Icon className="fas fa-list-alt" />,
               ],
               icon: (
-                <div>
+                <div className={classes.iconbutton}>
                   <Icon className="fas fa-list-ul" />
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
@@ -188,7 +226,7 @@ export default function HomeToolbar() {
                 <Icon className="fas fa-list-ul" />,
               ],
               icon: (
-                <div>
+                <div className={classes.iconbutton}>
                   <Icon className="fas fa-list-ol" />
                   <ArrowDropDownIcon className={classes.dropdown} />
                 </div>
