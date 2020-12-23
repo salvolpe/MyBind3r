@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     marginRight: theme.spacing(2),
   },
+  menuItem: {
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
 const setValue = (newValue) => {
@@ -96,7 +100,12 @@ export default function IconDropdown({ options, tooltip }) {
                   onKeyDown={handleListKeyDown}
                 >
                   {options.items.map((option) => (
-                    <MenuItem onClick={handleClose}>{option}</MenuItem>
+                    <MenuItem
+                      className={classes.menuItem}
+                      onClick={handleClose}
+                    >
+                      {option}
+                    </MenuItem>
                   ))}
                 </MenuList>
               </ClickAwayListener>

@@ -118,11 +118,6 @@ const SignUpPage = () => {
                 label="Re-enter password"
                 type="password"
                 variant="outlined"
-                onKeyDown={async (e) => {
-                  if (e.key === "Enter") {
-                    document.getElementById("register").click();
-                  }
-                }}
               />
             </form>
             <Button
@@ -245,10 +240,10 @@ const useStyles = makeStyles((theme) => ({
     width: 206,
     height: 62,
     border: "none",
-    '&:hover': {
-      textDecoration: 'none',
-      backgroundColor: "#4DA6FF"
-    }
+    "&:hover": {
+      textDecoration: "none",
+      backgroundColor: "#4DA6FF",
+    },
   },
 
   createMessage: {
