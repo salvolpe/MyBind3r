@@ -8,6 +8,7 @@ import forwardArrow from "../assets/forward_arrow.png";
 import backArrow from "../assets/back_arrow.png";
 import sampleScript from "../assets/BinderLeft.png";
 import sampleScript2 from "../assets/much_ado_3_1_2.png";
+import annotations from "../assets/BinderRight.png";
 import LoadingScreen from "../components/LoadingScreen"; //currently not used
 
 class BinderPage extends Component {
@@ -16,6 +17,7 @@ class BinderPage extends Component {
     this.state = {
       numNotes: 0,
       page: sampleScript,
+      notes: annotations,
       pageNumber: 1,
       loading: false,
     };
@@ -32,14 +34,14 @@ class BinderPage extends Component {
   };
 
   previousPage = () => {
-    this.setState({ page: sampleScript });
+    this.setState({ page: sampleScript, notes: annotations });
     if (this.state.pageNumber - 1 <= 1) {
       this.setState({ pageNumber: 1 });
     }
   };
 
   nextPage = () => {
-    this.setState({ page: sampleScript2 });
+    this.setState({ page: sampleScript2, notes: null });
     if (this.state.pageNumber + 1 >= 2) {
       this.setState({ pageNumber: 2 });
     }
@@ -68,7 +70,7 @@ class BinderPage extends Component {
       <Grid container justify="center" direction="column">
         <Header />
         <Grid container justify="center" direction="row">
-          <Binder page={this.state.page} />
+          <Binder pageLeft={this.state.page} pageRight={this.state.notes} />
         </Grid>
         <Grid style={arrowFooter}>
           <Grid style={left}>
