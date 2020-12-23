@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import { Button } from "@material-ui/core";
 import FormatBoldIcon from "@material-ui/icons/FormatBold";
 import FormatItalicIcon from "@material-ui/icons/FormatItalic";
 import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined";
@@ -13,9 +14,10 @@ import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import FormatColorTextIcon from "@material-ui/icons/FormatColorText";
 import IconDropdown from "../IconDropdown";
+import { Typography } from "@material-ui/core";
 
 import FontPicker from "font-picker-react"; //From @samuelmeuli on GitHub
-import { Typography } from "@material-ui/core";
+import ComingSoon from "../ComingSoon.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,6 +66,12 @@ export default function HomeToolbar() {
   const fontsAPIKey = "AIzaSyBbn6JGXHqKy-6zofUcB-eN5PgrSvlTgcw"; //Use personal API key from Google
 
   const [activeFontFamily, setActiveFontFamily] = useState("Comic Sans");
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <div>
       <Grid container alignItems="center" className={classes.root}>
@@ -72,6 +80,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="undo"
+            onClick={() => setDialogOpen(true)}
           >
             <UndoIcon fontSize="large" />
           </IconButton>
@@ -81,6 +90,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="redo"
+            onClick={() => setDialogOpen(true)}
           >
             <RedoIcon fontSize="large" />
           </IconButton>
@@ -92,8 +102,9 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="copy"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-copy" aria-label="copy"/>
+            <Icon className="fas fa-copy" aria-label="copy" />
           </IconButton>
         </Tooltip>
         <Tooltip title="cut (Ctrl + X)">
@@ -101,8 +112,9 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="cut"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-cut" aria-label="cut"/>
+            <Icon className="fas fa-cut" aria-label="cut" />
           </IconButton>
         </Tooltip>
         <Tooltip title="paste (Ctrl + V)">
@@ -110,8 +122,9 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="paste"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-paste" aria-label="paste"/>
+            <Icon className="fas fa-paste" aria-label="paste" />
           </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
@@ -123,8 +136,10 @@ export default function HomeToolbar() {
             onChange={(nextFont) => setActiveFontFamily(nextFont.family)}
           />
           <div className={classes.fontSizePicker}>
-            <Typography>12</Typography>
-            <ArrowDropDownIcon className={classes.dropdown} />
+            <Button onClick={() => setDialogOpen(true)}>
+              <Typography>12</Typography>
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </Button>
           </div>
         </div>
         <Divider orientation="vertical" flexItem />
@@ -133,6 +148,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="bold"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatBoldIcon fontSize="large" />
           </IconButton>
@@ -142,6 +158,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="italics"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatItalicIcon fontSize="large" />
           </IconButton>
@@ -151,6 +168,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="underline"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatUnderlinedIcon fontSize="large" />
           </IconButton>
@@ -160,6 +178,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="font-color-options"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatColorTextIcon fontSize="large" />
             <ArrowDropDownIcon className={classes.dropdown} />
@@ -170,6 +189,7 @@ export default function HomeToolbar() {
             className={classes.buttons}
             color="inherit"
             aria-label="highlight"
+            onClick={() => setDialogOpen(true)}
           >
             <div className={classes.iconbutton}>
               <Icon className="fas fa-highlighter" />
@@ -179,70 +199,62 @@ export default function HomeToolbar() {
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="align-otions">
-          <IconDropdown
-            options={{
-              aria: "align-options",
-              items: [
-                <Icon className="fas fa-align-left" aria-label="align-left" />,
-                <Icon
-                  className="fas fa-align-center"
-                  aria-label="align-right"
-                />,
-                <Icon
-                  className="fas fa-align-right"
-                  aria-label="align-center"
-                />,
-                <Icon
-                  className="fas fa-align-justify"
-                  aria-label="align-justify"
-                />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
-                  <Icon className="fas fa-align-left" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
-        <Tooltip title="list-options">
-          <IconDropdown
-            options={{
-              aria: "list-option",
-              items: [
-                <Icon className="fas fa-list-ul" />,
-                <Icon className="fas fa-list" />,
-                <Icon className="fas fa-list-alt" />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
-                  <Icon className="fas fa-list-ul" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
-        <Tooltip title="numbered-list-options">
-          <IconDropdown
-            options={{
-              aria: "numbered-list-options",
-              items: [
-                <Icon className="fas fa-list-ol" />,
-                <Icon className="fas fa-list-ul" />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
-                  <Icon className="fas fa-list-ol" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
+        <IconDropdown
+          tooltip="align-options"
+          options={{
+            aria: "align-options",
+            items: [
+              <Icon className="fas fa-align-left" aria-label="align-left" />,
+              <Icon className="fas fa-align-center" aria-label="align-right" />,
+              <Icon className="fas fa-align-right" aria-label="align-center" />,
+              <Icon
+                className="fas fa-align-justify"
+                aria-label="align-justify"
+              />,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-align-left" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
+        <IconDropdown
+          tooltip="list-options"
+          options={{
+            aria: "list-option",
+            items: [
+              <Icon className="fas fa-list-ul" />,
+              <Icon className="fas fa-list" />,
+              <Icon className="fas fa-list-alt" />,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-list-ul" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
+        <IconDropdown
+          tooltip="numbered-list-options"
+          options={{
+            aria: "numbered-list-options",
+            items: [
+              <Icon className="fas fa-list-ol" />,
+              <Icon className="fas fa-list-ul" />,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-list-ol" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
       </Grid>
+      <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
     </div>
   );
 }

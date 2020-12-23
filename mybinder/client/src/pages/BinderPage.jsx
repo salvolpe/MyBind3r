@@ -6,22 +6,22 @@ import Header from "../components/Header";
 import EditableText from "../components/EditableText";
 import forwardArrow from "../assets/forward_arrow.png";
 import backArrow from "../assets/back_arrow.png";
-import sampleScript from "../assets/much_ado_3_1.png";
+import sampleScript from "../assets/BinderLeft.png";
 import sampleScript2 from "../assets/much_ado_3_1_2.png";
 import LoadingScreen from "../components/LoadingScreen"; //currently not used
 
 class BinderPage extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        numNotes: 0,
-        page: sampleScript,
-        pageNumber: 1,
-        loading: false
-      };
+    super(props);
+    this.state = {
+      numNotes: 0,
+      page: sampleScript,
+      pageNumber: 1,
+      loading: false,
+    };
   }
 
- /* componentDidMount() {
+  /* componentDidMount() {
     setTimeout(() => {
       this.state.loading = false;
     }, 6000);
@@ -32,18 +32,18 @@ class BinderPage extends Component {
   };
 
   previousPage = () => {
-    this.setState({page: sampleScript});
+    this.setState({ page: sampleScript });
     if (this.state.pageNumber - 1 <= 1) {
-      this.setState({pageNumber: 1});
+      this.setState({ pageNumber: 1 });
     }
-  }
+  };
 
   nextPage = () => {
-    this.setState({page: sampleScript2});
+    this.setState({ page: sampleScript2 });
     if (this.state.pageNumber + 1 >= 2) {
-      this.setState({pageNumber: 2});
+      this.setState({ pageNumber: 2 });
     }
-  }
+  };
 
   render() {
     const notes = [];

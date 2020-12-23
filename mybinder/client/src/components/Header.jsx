@@ -87,6 +87,10 @@ export default function Header() {
   const [state, setState] = useState({
     file: false,
   });
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -104,18 +108,15 @@ export default function Header() {
   };
 
   const list = (anchor) => (
-    <div
-      className={classes.drawer}
-      role="presentation"
-    >
+    <div className={classes.drawer} role="presentation">
       <FileToolbar />
     </div>
   );
 
   const button = {
     marginLeft: "auto",
-    paddingRight: "20px"
-  }
+    paddingRight: "20px",
+  };
 
   return (
     <div className={classes.root}>
@@ -150,8 +151,8 @@ export default function Header() {
               <AntTab label="View" {...openTabs(3)} />
               <AntTab label="Help" {...openTabs(4)} />
             </AntTabs>
-            <Button style={button} onClick={ComingSoon}>
-                <img src={users}/>
+            <Button style={button} onClick={() => setDialogOpen(true)}>
+              <img src={users} />
             </Button>
             {/* <button onclick="TogetherJS(this); return false;">Start TogetherJS</button> */}
           </Toolbar>
@@ -172,6 +173,7 @@ export default function Header() {
           </TabPanel>
         </AppBar>
       </div>
+      <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
     </div>
   );
 }

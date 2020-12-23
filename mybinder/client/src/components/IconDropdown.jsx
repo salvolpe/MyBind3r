@@ -6,7 +6,7 @@ import Popper from "@material-ui/core/Popper";
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
-import { IconButton } from "@material-ui/core";
+import { IconButton, Tooltip } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +21,7 @@ const setValue = (newValue) => {
   console.log(newValue); //  { userName: 'jane', age: 43, message:[...] }
 };
 
-export default function IconDropdown({ options }) {
+export default function IconDropdown({ options, tooltip }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
@@ -47,7 +47,7 @@ export default function IconDropdown({ options }) {
       event.preventDefault();
       setOpen(false);
     }
-  };
+  }
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = useRef(open);
@@ -61,15 +61,17 @@ export default function IconDropdown({ options }) {
 
   return (
     <div>
-      <IconButton
-        ref={anchorRef}
-        aria-controls={open ? `${options.aria}-list-grow` : undefined}
-        aria-label={options.aria}
-        aria-haspopup="true"
-        onClick={handleToggle}
-      >
-        {options.icon}
-      </IconButton>
+      <Tooltip title={tooltip}>
+        <IconButton
+          ref={anchorRef}
+          aria-controls={open ? `${options.aria}-list-grow` : undefined}
+          aria-label={options.aria}
+          aria-haspopup="true"
+          onClick={handleToggle}
+        >
+          {options.icon}
+        </IconButton>
+      </Tooltip>
       <Popper
         open={open}
         anchorEl={anchorRef.current}

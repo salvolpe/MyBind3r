@@ -85,7 +85,7 @@ const LoginPage = () => {
                 type="password"
                 variant="outlined"
                 onChange={(e) => setPassword(e.target.value)}
-                onKeyDown-={async (e) => {
+                onKeyDown={async (e) => {
                   if (e.key == "Enter") {
                     document.getElementById("login").click();
                   }
