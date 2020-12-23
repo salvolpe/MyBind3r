@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import { Button } from "@material-ui/core";
 import FormatBoldIcon from "@material-ui/icons/FormatBold";
 import FormatItalicIcon from "@material-ui/icons/FormatItalic";
 import FormatUnderlinedIcon from "@material-ui/icons/FormatUnderlined";
@@ -13,9 +14,10 @@ import Icon from "@material-ui/core/Icon";
 import IconButton from "@material-ui/core/IconButton";
 import FormatColorTextIcon from "@material-ui/icons/FormatColorText";
 import IconDropdown from "../IconDropdown";
+import { Typography } from "@material-ui/core";
 
 import FontPicker from "font-picker-react"; //From @samuelmeuli on GitHub
-import { Typography } from "@material-ui/core";
+import ComingSoon from "../ComingSoon.jsx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
   buttons: {
     padding: theme.spacing(1.5, 1),
+  },
+  ddButtons: {
+    padding: theme.spacing(0.5, 0.2),
   },
   dropdown: {
     margin: theme.spacing(-0.5),
@@ -64,54 +69,65 @@ export default function HomeToolbar() {
   const fontsAPIKey = "AIzaSyBbn6JGXHqKy-6zofUcB-eN5PgrSvlTgcw"; //Use personal API key from Google
 
   const [activeFontFamily, setActiveFontFamily] = useState("Comic Sans");
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <div>
       <Grid container alignItems="center" className={classes.root}>
-        <Tooltip title="undo (Ctrl + Z)">
+        <Tooltip title="Undo (Ctrl + Z)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="undo"
+            aria-label="Undo (Ctrl + Z)"
+            onClick={() => setDialogOpen(true)}
           >
             <UndoIcon fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="redo (Ctrl + Y)">
+        <Tooltip title="Redo (Ctrl + Y)">
           <IconButton
             className={classes.buttons}
             color="inherit"
             aria-label="redo"
+            onClick={() => setDialogOpen(true)}
           >
             <RedoIcon fontSize="large" />
           </IconButton>
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="copy (Ctrl + C)">
+        <Tooltip title="Copy (Ctrl + C)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="copy"
+            aria-label="Undo (Ctrl + Z)"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-copy" aria-label="copy"/>
+            <Icon className="fas fa-copy" aria-label="copy" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="cut (Ctrl + X)">
+        <Tooltip title="Cut (Ctrl + X)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="cut"
+            aria-label="Cut (Ctrl + X)"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-cut" aria-label="cut"/>
+            <Icon className="fas fa-cut" aria-label="cut" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="paste (Ctrl + V)">
+        <Tooltip title="Paste (Ctrl + V)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="paste"
+            aria-label="Paste (Ctrl + V)"
+            onClick={() => setDialogOpen(true)}
           >
-            <Icon className="fas fa-paste" aria-label="paste"/>
+            <Icon className="fas fa-paste" aria-label="paste" />
           </IconButton>
         </Tooltip>
         <Divider orientation="vertical" flexItem />
@@ -123,53 +139,60 @@ export default function HomeToolbar() {
             onChange={(nextFont) => setActiveFontFamily(nextFont.family)}
           />
           <div className={classes.fontSizePicker}>
-            <Typography>12</Typography>
-            <ArrowDropDownIcon className={classes.dropdown} />
+            <Button onClick={() => setDialogOpen(true)}>
+              <Typography>12</Typography>
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </Button>
           </div>
         </div>
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="bold">
+        <Tooltip title="Bold (Ctrl + B)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="bold"
+            aria-label="Bold (Ctrl + B)"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatBoldIcon fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="italics">
+        <Tooltip title="Italics (Ctrl + I)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="italics"
+            aria-label="Italics (Ctrl + I)"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatItalicIcon fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="underline">
+        <Tooltip title="Underline (Ctrl + U)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="underline"
+            aria-label="Underline (Ctrl + U)"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatUnderlinedIcon fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="font-color">
+        <Tooltip title="Font Color">
           <IconButton
             className={classes.buttons}
             color="inherit"
             aria-label="font-color-options"
+            onClick={() => setDialogOpen(true)}
           >
             <FormatColorTextIcon fontSize="large" />
             <ArrowDropDownIcon className={classes.dropdown} />
           </IconButton>
         </Tooltip>
-        <Tooltip title="highlight">
+        <Tooltip title="Highlighter (Ctrl + L)">
           <IconButton
             className={classes.buttons}
             color="inherit"
-            aria-label="highlight"
+            aria-label="Highlighter (Ctrl + L)"
+            onClick={() => setDialogOpen(true)}
           >
             <div className={classes.iconbutton}>
               <Icon className="fas fa-highlighter" />
@@ -179,70 +202,149 @@ export default function HomeToolbar() {
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="align-otions">
-          <IconDropdown
-            options={{
-              aria: "align-options",
-              items: [
-                <Icon className="fas fa-align-left" aria-label="align-left" />,
-                <Icon
-                  className="fas fa-align-center"
-                  aria-label="align-right"
-                />,
-                <Icon
-                  className="fas fa-align-right"
+        <IconDropdown
+          tooltip="Text Alignment"
+          options={{
+            aria: "Text Alignment",
+            items: [
+              <Tooltip title="Align Left">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="align-left"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon className="fas fa-align-left" aria-label="align-left" />
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Center Text">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
                   aria-label="align-center"
-                />,
-                <Icon
-                  className="fas fa-align-justify"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon
+                    className="fas fa-align-center"
+                    aria-label="align-center"
+                  />
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Align Right">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="align-right"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon
+                    className="fas fa-align-right"
+                    aria-label="align-right"
+                  />
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Justify">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
                   aria-label="align-justify"
-                />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
-                  <Icon className="fas fa-align-left" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
-        <Tooltip title="list-options">
-          <IconDropdown
-            options={{
-              aria: "list-option",
-              items: [
-                <Icon className="fas fa-list-ul" />,
-                <Icon className="fas fa-list" />,
-                <Icon className="fas fa-list-alt" />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon
+                    className="fas fa-align-justify"
+                    aria-label="align-justify"
+                  />
+                </IconButton>
+              </Tooltip>,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-align-left" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
+        <IconDropdown
+          tooltip="Bullet List"
+          options={{
+            aria: "Bullet List",
+            items: [
+              <Tooltip title="Circle Bullets">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="circle-bullets"
+                  onClick={() => setDialogOpen(true)}
+                >
                   <Icon className="fas fa-list-ul" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
-        <Tooltip title="numbered-list-options">
-          <IconDropdown
-            options={{
-              aria: "numbered-list-options",
-              items: [
-                <Icon className="fas fa-list-ol" />,
-                <Icon className="fas fa-list-ul" />,
-              ],
-              icon: (
-                <div className={classes.iconbutton}>
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Square Bullets">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="square-bullets"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon className="fas fa-list" />
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Extra Bullets">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="extra-bullets-alt"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon className="fas fa-list-alt" />
+                </IconButton>
+              </Tooltip>,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-list-ul" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
+        <IconDropdown
+          tooltip="Numbered List"
+          options={{
+            aria: "numbered-list-options",
+            items: [
+              <Tooltip title="Numbers">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="arabic-numbers"
+                  onClick={() => setDialogOpen(true)}
+                >
                   <Icon className="fas fa-list-ol" />
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
+                </IconButton>
+              </Tooltip>,
+              <Tooltip title="Letters (not shown)">
+                <IconButton
+                  className={classes.ddButtons}
+                  color="inherit"
+                  aria-label="letters-list"
+                  onClick={() => setDialogOpen(true)}
+                >
+                  <Icon className="fas fa-list-ul" />
+                </IconButton>
+              </Tooltip>,
+            ],
+            icon: (
+              <div className={classes.iconbutton}>
+                <Icon className="fas fa-list-ol" />
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
       </Grid>
+      <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
     </div>
   );
 }
