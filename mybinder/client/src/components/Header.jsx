@@ -87,6 +87,7 @@ export default function Header() {
   const [state, setState] = useState({
     file: false,
   });
+  const [toolMode, setToolMode] = useState("Text Mode");
   const [dialogOpen, setDialogOpen] = useState(false);
   const handleDialogClose = () => {
     setDialogOpen(false);
@@ -94,6 +95,10 @@ export default function Header() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const handleModeChange = (newMode) => {
+    setToolMode(newMode);
   };
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -211,6 +216,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#1890ff",
   },
   demo1: {
+    display: "flex",
     backgroundColor: theme.palette.background.paper,
   },
   appbar: {

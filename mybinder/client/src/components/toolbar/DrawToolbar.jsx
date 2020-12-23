@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
+import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
@@ -26,6 +27,13 @@ const useStyles = makeStyles((theme) => ({
   dropdown: {
     margin: theme.spacing(-0.5),
   },
+  gridSpread: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingRight: "2%",
+  },
+  mode: { marginLeft: "auto" },
 }));
 
 export default function DrawToolbar() {
@@ -38,56 +46,59 @@ export default function DrawToolbar() {
 
   return (
     <div>
-      <Grid container alignItems="center" className={classes.root}>
-        <Tooltip title="pen">
-          <IconButton
-            className={classes.buttons}
-            color="inherit"
-            aria-label="pen"
-            onClick={() => setDialogOpen(true)}
-          >
-            <Icon className="fas fa-pen" />
-            <ArrowDropDownIcon className={classes.dropdown} />
-          </IconButton>
-        </Tooltip>
+      <Grid className={classes.gridSpread}>
+        <Grid container alignItems="center" className={classes.root}>
+          <Tooltip title="Pencil">
+            <IconButton
+              className={classes.buttons}
+              color="inherit"
+              aria-label="pen"
+              onClick={() => setDialogOpen(true)}
+            >
+              <Icon className="fas fa-pen" />
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </IconButton>
+          </Tooltip>
 
-        <Tooltip title="erase">
-          <IconButton
-            className={classes.buttons}
-            color="inherit"
-            aria-label="erase"
-            onClick={() => setDialogOpen(true)}
-          >
-            <Icon className="fas fa-eraser" />
-            <ArrowDropDownIcon className={classes.dropdown} />
-          </IconButton>
-        </Tooltip>
+          <Tooltip title="Erase">
+            <IconButton
+              className={classes.buttons}
+              color="inherit"
+              aria-label="erase"
+              onClick={() => setDialogOpen(true)}
+            >
+              <Icon className="fas fa-eraser" />
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </IconButton>
+          </Tooltip>
 
-        <Divider orientation="vertical" flexItem />
+          <Divider orientation="vertical" flexItem />
 
-        <Tooltip title="color">
-          <IconButton
-            className={classes.buttons}
-            color="inherit"
-            aria-label="color"
-            onClick={() => setDialogOpen(true)}
-          >
-            <Icon className="fas fa-palette" />
-            <ArrowDropDownIcon className={classes.dropdown} />
-          </IconButton>
-        </Tooltip>
+          <Tooltip title="Color">
+            <IconButton
+              className={classes.buttons}
+              color="inherit"
+              aria-label="color"
+              onClick={() => setDialogOpen(true)}
+            >
+              <Icon className="fas fa-palette" />
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </IconButton>
+          </Tooltip>
 
-        <Tooltip title="shapes">
-          <IconButton
-            className={classes.buttons}
-            color="inherit"
-            aria-label="shapes"
-            onClick={() => setDialogOpen(true)}
-          >
-            <Icon className="fas fa-shapes" />
-            <ArrowDropDownIcon className={classes.dropdown} />
-          </IconButton>
-        </Tooltip>
+          <Tooltip title="Shapes">
+            <IconButton
+              className={classes.buttons}
+              color="inherit"
+              aria-label="shapes"
+              onClick={() => setDialogOpen(true)}
+            >
+              <Icon className="fas fa-shapes" />
+              <ArrowDropDownIcon className={classes.dropdown} />
+            </IconButton>
+          </Tooltip>
+        </Grid>
+        <Typography className={classes.mode}>Draw Mode</Typography>
       </Grid>
       <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
     </div>

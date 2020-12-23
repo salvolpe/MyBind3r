@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Grid from "@material-ui/core/Grid";
@@ -63,56 +63,60 @@ export default function ViewToolbar() {
 
         <Divider orientation="vertical" flexItem />
 
-        <Tooltip title="layers">
-          <IconDropdown
-            options={{
-              aria: "Page View",
-              items: [<div onClick={() => setDialogOpen(true)}>
-                  <Typography> Script-Only </Typography>
-              </div>, <div onClick={() => setDialogOpen(true)}>
-                  <Typography> Full Bind3r </Typography>
-              </div>],
-              icon: (
-                <div>
-                  <Icon className="fas fa-book-open" />
-                  &nbsp;Page View&nbsp;
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
+        <IconDropdown
+          tooltip="Page View"
+          options={{
+            aria: "Page View",
+            items: [
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> Script-Only </Typography>
+              </div>,
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> Full Bind3r </Typography>
+              </div>,
+            ],
+            icon: (
+              <div>
+                <Icon className="fas fa-book-open" />
+                &nbsp;Page View&nbsp;
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
 
-            }}
-          />
-        </Tooltip>
-
-        <Tooltip title="layers">
-          <IconDropdown
-            options={{
-              aria: "layers",
-              items: [<div onClick={() => setDialogOpen(true)}>
-                <Typography> Rehearsal Script </Typography> </div>,
-                <div onClick={() => setDialogOpen(true)}>
-                <Typography> Call Script </Typography> </div>,
-                <div onClick={() => setDialogOpen(true)}>
-                <Typography> Tech-Tuesdays </Typography> </div>,
-                <div onClick={() => setDialogOpen(true)}>
-                <Typography> + New Layer </Typography> </div>,
-              ],
-              icon: (
-                <div>
-                  <Icon className="fas fa-layer-group" />
-                  &nbsp;Layers&nbsp;
-                  <ArrowDropDownIcon className={classes.dropdown} />
-                </div>
-              ),
-            }}
-          />
-        </Tooltip>
+        <IconDropdown
+          tooltip="Layers (Ctrl + L)"
+          options={{
+            aria: "layers",
+            items: [
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> Rehearsal Script </Typography>{" "}
+              </div>,
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> Call Script </Typography>{" "}
+              </div>,
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> Tech-Tuesdays </Typography>{" "}
+              </div>,
+              <div onClick={() => setDialogOpen(true)}>
+                <Typography> + New Layer </Typography>{" "}
+              </div>,
+            ],
+            icon: (
+              <div>
+                <Icon className="fas fa-layer-group" />
+                &nbsp;Layers&nbsp;
+                <ArrowDropDownIcon className={classes.dropdown} />
+              </div>
+            ),
+          }}
+        />
       </Grid>
       <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
     </div>
   );
 }
-
 
 /*
 
