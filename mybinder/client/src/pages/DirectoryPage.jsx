@@ -12,6 +12,7 @@ import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/mybind3r_logo.png";
 import DirectoryTable from "../components/DirectoryTable";
 import panel from "../assets/side_panel.png";
+import ComingSoon from "../components/ComingSoon";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -130,7 +131,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   buttons: {
-    marginTop:9,
+    marginTop: 9,
     width: 113,
     textAlign: "center",
   },
@@ -154,7 +155,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     width: "80%",
     height: "844px",
-    flexDirection: "column"
+    flexDirection: "column",
   },
 
   bottomGrid: {
