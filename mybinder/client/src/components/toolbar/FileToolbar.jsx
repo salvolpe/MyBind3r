@@ -62,7 +62,7 @@ export default function NestedList() {
         <ListItemText primary="Preferences" />
       </ListItem>
       <ListItem button onClick={() => handleClick("Save")}>
-        <ListItemText primary="Save" />
+        <ListItemText primary="Save (Ctrl + S)" />
         {saveOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={saveOpen} timeout="auto" unmountOnExit>
@@ -116,7 +116,7 @@ export default function NestedList() {
         </List>
       </Collapse>
       <ListItem button>
-        <ListItemText primary="Print" />
+        <ListItemText primary="Print (Ctrl + P)" />
       </ListItem>
     </List>
   );

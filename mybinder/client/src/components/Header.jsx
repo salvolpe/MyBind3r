@@ -16,6 +16,9 @@ import InsertToolbar from "./toolbar/InsertToolbar";
 import DrawToolbar from "./toolbar/DrawToolbar";
 import ViewToolbar from "./toolbar/ViewToolbar";
 import HelpToolbar from "./toolbar/HelpToolbar";
+import users from "../assets/collab.png";
+import ComingSoon from "./ComingSoon.jsx";
+import { Grid } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -109,6 +112,11 @@ export default function Header() {
     </div>
   );
 
+  const button = {
+    marginLeft: "auto",
+    paddingRight: "20px"
+  }
+
   return (
     <div className={classes.root}>
       <div className={classes.demo1}>
@@ -142,6 +150,9 @@ export default function Header() {
               <AntTab label="View" {...openTabs(3)} />
               <AntTab label="Help" {...openTabs(4)} />
             </AntTabs>
+            <Button style={button} onClick={ComingSoon}>
+                <img src={users}/>
+            </Button>
             {/* <button onclick="TogetherJS(this); return false;">Start TogetherJS</button> */}
           </Toolbar>
           <TabPanel value={value} index={0}>

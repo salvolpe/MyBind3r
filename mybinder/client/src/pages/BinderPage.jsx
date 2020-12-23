@@ -12,31 +12,38 @@ import LoadingScreen from "../components/LoadingScreen"; //currently not used
 
 class BinderPage extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      numNotes: 0,
-      page: sampleScript,
-      loading: true,
-    };
+      super(props);
+      this.state = {
+        numNotes: 0,
+        page: sampleScript,
+        pageNumber: 1,
+        loading: false
+      };
   }
 
-  componentDidMount() {
+ /* componentDidMount() {
     setTimeout(() => {
       this.state.loading = false;
     }, 6000);
-  }
+  }*/
 
   addNote = () => {
     this.setState({ numNotes: this.state.numNotes + 1 });
   };
 
   previousPage = () => {
-    this.setState({ page: sampleScript });
-  };
+    this.setState({page: sampleScript});
+    if (this.state.pageNumber - 1 <= 1) {
+      this.setState({pageNumber: 1});
+    }
+  }
 
   nextPage = () => {
-    this.setState({ page: sampleScript2 });
-  };
+    this.setState({page: sampleScript2});
+    if (this.state.pageNumber + 1 >= 2) {
+      this.setState({pageNumber: 2});
+    }
+  }
 
   render() {
     const notes = [];
@@ -58,28 +65,22 @@ class BinderPage extends Component {
       alignItems: "center",
     };
     return (
-      <>
-        {this.state.loading === false ? (
-          <Grid container justify="center" direction="column">
-            <Header />
-            <Grid container justify="center" direction="row">
-              <Binder page={this.state.page} />
-            </Grid>
-            <Grid style={arrowFooter}>
-              <Grid style={left}>
-                <Button onClick={this.previousPage}>
-                  <img src={backArrow} />
-                </Button>
-              </Grid>
-              <Button onClick={this.nextPage}>
-                <img src={forwardArrow} />
-              </Button>
-            </Grid>
+      <Grid container justify="center" direction="column">
+        <Header />
+        <Grid container justify="center" direction="row">
+          <Binder page={this.state.page} />
+        </Grid>
+        <Grid style={arrowFooter}>
+          <Grid style={left}>
+            <Button onClick={this.previousPage}>
+              <img src={backArrow} />
+            </Button>
           </Grid>
-        ) : (
-          <LoadingScreen />
-        )}
-      </>
+          <Button onClick={this.nextPage}>
+            <img src={forwardArrow} />
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }

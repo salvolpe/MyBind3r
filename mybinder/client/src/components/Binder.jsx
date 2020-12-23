@@ -17,6 +17,7 @@ class Binder extends React.Component {
     const binderSpaceLeft = {
       position: "absolute",
       minHeight: 845,
+      maxHeight: 845,
       minWidth: 653,
       right: 18,
       zIndex: -1,
@@ -25,6 +26,7 @@ class Binder extends React.Component {
     const binderSpaceRight = {
       position: "absolute",
       minHeight: 845,
+      maxHeight: 845,
       minWidth: 653,
       left: 18,
       zIndex: -1,
