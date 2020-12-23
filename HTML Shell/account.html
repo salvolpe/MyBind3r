@@ -129,6 +129,11 @@
         align-items: center;
       }
 
+      #fileButton:hover {
+        cursor: pointer;
+      }
+
+
       #cRow {
         width: 1041px;
         height: 58px;
@@ -136,7 +141,7 @@
         border-bottom: 1px solid #989898;
       }
 
-      #cellLItem {
+      .cellLItem {
         margin-left: 36px;
       }
 
@@ -218,7 +223,7 @@
       </div>
       <div id="titleContainer">MyBind3r</div>
       <div id="buttonContainer">
-        <button class="button" onclick="document.location='home.html'">
+        <button class="button" onclick="document.location='index.html'">
           Log Out
         </button>
       </div>
@@ -246,24 +251,24 @@
               <div id="lastItem" class="tableCell">Last Modified</div>
             </div>
             <div id="cRow">
-              <div id="cellLItem" class="cell">Much Ado About Nothing</div>
-              <div id="cellItems" class="cell">Example User</div>
-              <div id="cellItems" class="cell">Yesterday</div>
+              <div id="fileButton" class="cell cellLItem" onclick="document.location='binder.html'">Much Ado About Nothing</div>
+              <div class="cell">Example User</div>
+              <div class="cell">Yesterday</div>
             </div>
             <div id="cRow">
-              <div id="cellLItem" class="cell">Romeo and Juliet</div>
-              <div id="cellItems" class="cell">Example User</div>
-              <div id="cellItems" class="cell">2 Months Ago</div>
+              <div class="cell cellLItem">Romeo and Juliet</div>
+              <div class="cell">Example User</div>
+              <div class="cell">2 Months Ago</div>
             </div>
             <div id="cRow">
-              <div id="cellLItem" class="cell">Hamlet</div>
-              <div id="cellItems" class="cell">Master User</div>
-              <div id="cellItems" class="cell">A Year Ago</div>
+              <div class="cell cellLItem">Hamlet</div>
+              <div class="cell">Master User</div>
+              <div class="cell">A Year Ago</div>
             </div>
             <div id="cRow">
-              <div id="cellLItem" class="cell">A Raisin in the Sun</div>
-              <div id="cellItems" class="cell">Example User</div>
-              <div id="cellItems" class="cell">2018</div>
+              <div class="cell cellLItem">A Raisin in the Sun</div>
+              <div class="cell">Example User</div>
+              <div class="cell">2018</div>
             </div>
           </div>
         </div>
