@@ -67,7 +67,7 @@ export default function HomeToolbar() {
   return (
     <div>
       <Grid container alignItems="center" className={classes.root}>
-        <Tooltip title="undo">
+        <Tooltip title="undo (Ctrl + Z)">
           <IconButton
             className={classes.buttons}
             color="inherit"
@@ -76,7 +76,7 @@ export default function HomeToolbar() {
             <UndoIcon fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Tooltip title="redo">
+        <Tooltip title="redo (Ctrl + Y)">
           <IconButton
             className={classes.buttons}
             color="inherit"
@@ -87,7 +87,7 @@ export default function HomeToolbar() {
         </Tooltip>
 
         <Divider orientation="vertical" flexItem />
-        <Tooltip title="copy">
+        <Tooltip title="copy (Ctrl + C)">
           <IconButton
             className={classes.buttons}
             color="inherit"
@@ -96,7 +96,7 @@ export default function HomeToolbar() {
             <Icon className="fas fa-copy" aria-label="copy"/>
           </IconButton>
         </Tooltip>
-        <Tooltip title="cut">
+        <Tooltip title="cut (Ctrl + X)">
           <IconButton
             className={classes.buttons}
             color="inherit"
@@ -105,7 +105,7 @@ export default function HomeToolbar() {
             <Icon className="fas fa-cut" aria-label="cut"/>
           </IconButton>
         </Tooltip>
-        <Tooltip title="paste">
+        <Tooltip title="paste (Ctrl + V)">
           <IconButton
             className={classes.buttons}
             color="inherit"
