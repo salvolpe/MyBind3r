@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
@@ -8,6 +8,7 @@ import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { useHistory, useParams } from "react-router-dom";
+import ComingSoon from "../ComingSoon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,11 @@ export default function NestedList() {
   const [importOpen, setImport] = React.useState(false);
   const [exportOpen, setExport] = React.useState(false);
   
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
   const handleFileItemClick = () => {
     history.push(`/${user}/directory`);
   };
@@ -43,6 +49,7 @@ export default function NestedList() {
   };
 
   return (
+  <div>
     <List
       component="nav"
       subheader={
@@ -55,10 +62,10 @@ export default function NestedList() {
       <ListItem button onClick={handleFileItemClick}>
         <ListItemText primary="Back to Binders" />
       </ListItem>
-      <ListItem button>
+      <ListItem button onClick={() => setDialogOpen(true)}>
         <ListItemText primary= "New Binder" />
       </ListItem>
-      <ListItem button>
+      <ListItem button onClick={() => setDialogOpen(true)}>
         <ListItemText primary="Preferences" />
       </ListItem>
       <ListItem button onClick={() => handleClick("Save")}>
@@ -67,10 +74,10 @@ export default function NestedList() {
       </ListItem>
       <Collapse in={saveOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Save version" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Save local copy" />
           </ListItem>
         </List>
@@ -81,19 +88,19 @@ export default function NestedList() {
       </ListItem>
       <Collapse in={importOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Import PDF" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Import Actor" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Import Object" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Import Floor Plan" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Import Tag" />
           </ListItem>
         </List>
@@ -104,20 +111,22 @@ export default function NestedList() {
       </ListItem>
       <Collapse in={exportOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Export Cue Sheet" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Export Actor Tracking" />
           </ListItem>
-          <ListItem button className={classes.nested}>
+          <ListItem button className={classes.nested} onClick={() => setDialogOpen(true)}>
             <ListItemText primary="Export Binder" />
           </ListItem>
         </List>
       </Collapse>
-      <ListItem button>
+      <ListItem button onClick={() => setDialogOpen(true)}>
         <ListItemText primary="Print (Ctrl + P)" />
       </ListItem>
     </List>
+    <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
+    </div>
   );
 }

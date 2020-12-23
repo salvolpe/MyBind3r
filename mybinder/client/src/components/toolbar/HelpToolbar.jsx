@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import ComingSoon from "../ComingSoon";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +58,11 @@ const useStyles = makeStyles((theme) => ({
 export default function HelpToolbar() {
   const classes = useStyles();
 
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="relative" color="transparent" elevation="0">
@@ -72,10 +78,17 @@ export default function HelpToolbar() {
                 input: classes.inputInput,
               }}
               inputProps={{ "aria-label": "search" }}
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  setDialogOpen(true);
+                }
+              }}
             />
+            <ComingSoon onClose={handleDialogClose} open={dialogOpen} />
           </div>
         </Toolbar>
       </AppBar>
+      
     </div>
   );
 }
